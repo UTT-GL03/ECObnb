@@ -154,7 +154,19 @@ Airbnb pourrait créer des partenariats avec les réseaux de transports en commu
 L'application pourrait également proposer directement les itinéraires en bus, tramway, métro ou train entre le logement et les activités choisies.
 
 Cela permettrait de faciliter les déplacements des voyageurs tout en encourageant l'utilisation des transports en commun plutôt que de la voiture.
+Scénario : « Rechercher un logement »
+L'utilisateur ouvre Airbnb.
+Il indique une destination et ses dates de séjour.
+Il consulte les résultats et applique éventuellement des filtres.
+Il consulte plusieurs annonces et leurs informations.
 
+Ce scénario permet d'observer l'impact lié à la recherche et à la consultation de plusieurs logements.
+
+Scénario : « Comparer plusieurs logements »
+L'utilisateur effectue une recherche.
+Il consulte plusieurs annonces.
+Il compare les photos, les avis, les prix et les caractéristiques.
+Il revient aux résultats pour comparer les logements.
 ## EcoIndex
 
 L'EcoIndex permet d'évaluer l'impact environnemental d'une page web à partir de différents indicateurs.
