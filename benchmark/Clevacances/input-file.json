@@ -1,0 +1,36 @@
+{
+  "output": [
+    "json",
+    "statement"
+  ],
+  "user-agent": "insights",
+  "output-name": "ecoindex",
+  "courses": [
+    {
+      "name": "Pages principales",
+      "target": "",
+      "course": "Accueil ; Recherche ; Annonce ; Annonce ; Recherche",
+      "is-best-pages": true,
+      "urls": [
+        "https://www.clevacances.com/fr",
+        "https://www.clevacances.com/fr/thematiques/1665-gites-ardeche",
+        "https://www.clevacances.com/fr/hebergement/19128-le-gite-des-trois-colombes-colombier-le-jeune",
+        "https://www.clevacances.com/fr/hebergement/21408-gites-armas-le-haut",
+        "https://www.clevacances.com/fr/thematiques/1084-locations-de-vacances-gard"
+      ]
+    },
+    {
+      "name": "Rechercher et consulter des logements",
+      "target": "",
+      "course": "",
+      "is-best-pages": false,
+      "urls": [
+        "https://www.clevacances.com/fr",
+        "https://www.clevacances.com/fr/thematiques/1665-gites-ardeche",
+        "https://www.clevacances.com/fr/hebergement/19128-le-gite-des-trois-colombes-colombier-le-jeune",
+        "https://www.clevacances.com/fr/hebergement/21408-gites-armas-le-haut",
+        "https://www.clevacances.com/fr/thematiques/1084-locations-de-vacances-gard"
+      ]
+    }
+  ]
+}
