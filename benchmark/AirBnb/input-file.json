@@ -5,21 +5,18 @@
   ],
   "user-agent": "insights",
   "output-name": "ecoindex",
-  "audit-category": [
-    "lighthouse-plugin-ecoindex-core"
-  ],
   "courses": [
     {
       "name": "Pages principales",
       "target": "",
-      "course": "Accueil ; Recherche ; Annonce ; Annonce ; Recherche",
+      "course": "Accueil ; Recherche ; Annonce ; Annonce ; Annonce",
       "is-best-pages": true,
       "urls": [
         "https://www.airbnb.fr/",
         "https://www.airbnb.fr/s/Paris/homes?query=Paris",
         "https://www.airbnb.fr/rooms/1771852268379999411",
         "https://www.airbnb.fr/rooms/1612481834748586799",
-        "https://www.airbnb.fr/s/Nice/homes?query=Nice"
+        "https://www.airbnb.fr/rooms/1773383825124340270"
       ]
     },
     {
@@ -32,7 +29,7 @@
         "https://www.airbnb.fr/s/Paris/homes?query=Paris",
         "https://www.airbnb.fr/rooms/1771852268379999411",
         "https://www.airbnb.fr/rooms/1612481834748586799",
-        "https://www.airbnb.fr/s/Nice/homes?query=Nice"
+        "https://www.airbnb.fr/rooms/1773383825124340270"
       ]
     }
   ]
