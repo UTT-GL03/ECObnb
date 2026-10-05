@@ -3,10 +3,10 @@
 Mesure effectuée le Mon Oct 05 2026.
 
 ## Niveau d'écoconception du site web
-![Note G](https://raw.githubusercontent.com/cnumr/lighthouse-plugin-ecoindex/main/assets/Note-G.webp)
-* Note Ecoindex : **9/100**
-* Consommation d'eau moyenne rapportée à 1 000 utilisateurs (en litres) : **42.38 litres, (soit 5 packs d'eau minérale).***
-* Émission de Gaz à Effet de Serre (GES) moyenne rapportée à 1 000 utilisateurs (kilos CO2e) : **2.83 kilos CO2e (soit un trajet de 13 kms en voiture à énergie thermique).***
+![Note F](https://raw.githubusercontent.com/cnumr/lighthouse-plugin-ecoindex/main/assets/Note-F.webp)
+* Note Ecoindex : **21/100**
+* Consommation d'eau moyenne rapportée à 1 000 utilisateurs (en litres) : **38.62 litres, (soit 4 packs d'eau minérale).***
+* Émission de Gaz à Effet de Serre (GES) moyenne rapportée à 1 000 utilisateurs (kilos CO2e) : **2.57 kilos CO2e (soit un trajet de 12 kms en voiture à énergie thermique).***
 ## Méthode d'évaluation
 Comme toute production numérique, ce site web a un impact environnemental que nous vous présentons sur cette page à l'aide d'indicateurs standardisés.
 
@@ -24,55 +24,55 @@ L'analyse indiquée a été effectuée le Mon Oct 05 2026, elle est susceptible 
 
 ## Evaluation de l'impact des 5 pages les plus visitées du site
 
-### Page 1 : https://www.airbnb.fr/
+### Page 1 : https://www.clevacances.com/fr
 
 |Grade|Ecoindex|Eau (cl)|GES (gCO2e)|Nb de requêtes|Taille de la page (Ko)|Taille du DOM|
 |---|---|---|---|---|---|---|
-|G|7/100|42.80|2.85|210|5348.455|2540|
+|F|12/100|41.30|2.75|148|6124.034|1969|
 
 
-* Consommation d'eau rapportée à 1 000 utilisateurs (en litres) : 42.80 (soit 5 packs d'eau minérale).
-* Émission de GES rapportée à 1 000 utilisateurs (kilos CO2e) : 2.85 (soit un trajet de 13 kms en voiture à énergie thermique).
+* Consommation d'eau rapportée à 1 000 utilisateurs (en litres) : 41.30 (soit 5 packs d'eau minérale).
+* Émission de GES rapportée à 1 000 utilisateurs (kilos CO2e) : 2.75 (soit un trajet de 13 kms en voiture à énergie thermique).
 
-### Page 2 : https://www.airbnb.fr/s/Paris/homes?query=Paris
-
-|Grade|Ecoindex|Eau (cl)|GES (gCO2e)|Nb de requêtes|Taille de la page (Ko)|Taille du DOM|
-|---|---|---|---|---|---|---|
-|G|7/100|43.00|2.87|231|6314.221|4719|
-
-
-* Consommation d'eau rapportée à 1 000 utilisateurs (en litres) : 43.00 (soit 5 packs d'eau minérale).
-* Émission de GES rapportée à 1 000 utilisateurs (kilos CO2e) : 2.87 (soit un trajet de 13 kms en voiture à énergie thermique).
-
-### Page 3 : https://www.airbnb.fr/rooms/1771852268379999411
+### Page 2 : https://www.clevacances.com/fr/thematiques/1665-gites-ardeche
 
 |Grade|Ecoindex|Eau (cl)|GES (gCO2e)|Nb de requêtes|Taille de la page (Ko)|Taille du DOM|
 |---|---|---|---|---|---|---|
-|F|12/100|41.40|2.76|211|5360.058|1528|
-
-
-* Consommation d'eau rapportée à 1 000 utilisateurs (en litres) : 41.40 (soit 5 packs d'eau minérale).
-* Émission de GES rapportée à 1 000 utilisateurs (kilos CO2e) : 2.76 (soit un trajet de 13 kms en voiture à énergie thermique).
-
-### Page 4 : https://www.airbnb.fr/rooms/1612481834748586799
-
-|Grade|Ecoindex|Eau (cl)|GES (gCO2e)|Nb de requêtes|Taille de la page (Ko)|Taille du DOM|
-|---|---|---|---|---|---|---|
-|G|8/100|42.60|2.84|243|5629.419|2122|
-
-
-* Consommation d'eau rapportée à 1 000 utilisateurs (en litres) : 42.60 (soit 5 packs d'eau minérale).
-* Émission de GES rapportée à 1 000 utilisateurs (kilos CO2e) : 2.84 (soit un trajet de 13 kms en voiture à énergie thermique).
-
-### Page 5 : https://www.airbnb.fr/rooms/1773383825124340270
-
-|Grade|Ecoindex|Eau (cl)|GES (gCO2e)|Nb de requêtes|Taille de la page (Ko)|Taille du DOM|
-|---|---|---|---|---|---|---|
-|G|10/100|42.10|2.81|212|5288.535|1908|
+|G|10/100|42.10|2.80|199|3186.973|5094|
 
 
 * Consommation d'eau rapportée à 1 000 utilisateurs (en litres) : 42.10 (soit 5 packs d'eau minérale).
-* Émission de GES rapportée à 1 000 utilisateurs (kilos CO2e) : 2.81 (soit un trajet de 13 kms en voiture à énergie thermique).
+* Émission de GES rapportée à 1 000 utilisateurs (kilos CO2e) : 2.80 (soit un trajet de 13 kms en voiture à énergie thermique).
+
+### Page 3 : https://www.clevacances.com/fr/hebergement/19128-le-gite-des-trois-colombes-colombier-le-jeune
+
+|Grade|Ecoindex|Eau (cl)|GES (gCO2e)|Nb de requêtes|Taille de la page (Ko)|Taille du DOM|
+|---|---|---|---|---|---|---|
+|E|35/100|34.40|2.29|67|1011.827|1668|
+
+
+* Consommation d'eau rapportée à 1 000 utilisateurs (en litres) : 34.40 (soit 4 packs d'eau minérale).
+* Émission de GES rapportée à 1 000 utilisateurs (kilos CO2e) : 2.29 (soit un trajet de 11 kms en voiture à énergie thermique).
+
+### Page 4 : https://www.clevacances.com/fr/hebergement/21408-gites-armas-le-haut
+
+|Grade|Ecoindex|Eau (cl)|GES (gCO2e)|Nb de requêtes|Taille de la page (Ko)|Taille du DOM|
+|---|---|---|---|---|---|---|
+|E|38/100|33.60|2.24|58|585.656|2027|
+
+
+* Consommation d'eau rapportée à 1 000 utilisateurs (en litres) : 33.60 (soit 4 packs d'eau minérale).
+* Émission de GES rapportée à 1 000 utilisateurs (kilos CO2e) : 2.24 (soit un trajet de 10 kms en voiture à énergie thermique).
+
+### Page 5 : https://www.clevacances.com/fr/thematiques/1084-locations-de-vacances-gard
+
+|Grade|Ecoindex|Eau (cl)|GES (gCO2e)|Nb de requêtes|Taille de la page (Ko)|Taille du DOM|
+|---|---|---|---|---|---|---|
+|F|11/100|41.70|2.78|173|3213.937|5130|
+
+
+* Consommation d'eau rapportée à 1 000 utilisateurs (en litres) : 41.70 (soit 5 packs d'eau minérale).
+* Émission de GES rapportée à 1 000 utilisateurs (kilos CO2e) : 2.78 (soit un trajet de 13 kms en voiture à énergie thermique).
 
 ## Evaluation de l'impact pour 5 parcours utilisateurs sur le site
 
@@ -82,14 +82,14 @@ L'analyse indiquée a été effectuée le Mon Oct 05 2026, elle est susceptible 
 
 |Page|Grade|Ecoindex|Eau (cl)|GES (gCO2e)|Nb de requêtes|Taille de la course (Ko)|Taille du DOM|
 |---|---|---|---|---|---|---|---|
-|https://www.airbnb.fr/|G|7/100|42.80|2.85|210|5348.455|2540|
-|https://www.airbnb.fr/s/Paris/homes?query=Paris|G|7/100|43.00|2.87|231|6314.221|4719|
-|https://www.airbnb.fr/rooms/1771852268379999411|F|12/100|41.40|2.76|211|5360.058|1528|
-|https://www.airbnb.fr/rooms/1612481834748586799|G|8/100|42.60|2.84|243|5629.419|2122|
-|https://www.airbnb.fr/rooms/1773383825124340270|G|10/100|42.10|2.81|212|5288.535|1908|
+|https://www.clevacances.com/fr|F|12/100|41.30|2.75|148|6142.104|1969|
+|https://www.clevacances.com/fr/thematiques/1665-gites-ardeche|G|10/100|42.10|2.81|199|3310.198|5095|
+|https://www.clevacances.com/fr/hebergement/19128-le-gite-des-trois-colombes-colombier-le-jeune|E|35/100|34.40|2.29|67|1011.904|1668|
+|https://www.clevacances.com/fr/hebergement/21408-gites-armas-le-haut|E|38/100|33.70|2.25|60|589.267|2027|
+|https://www.clevacances.com/fr/thematiques/1084-locations-de-vacances-gard|F|11/100|41.70|2.78|172|3213.282|5130|
 
-* Consommation d'eau rapportée à 1 000 utilisateurs (en litres) : 42.38 (soit 5 packs d'eau minérale).
-* Émission de GES rapportée à 1 000 utilisateurs (kilos CO2e) : 2.83 (soit un trajet de 13 kms en voiture à énergie thermique).
+* Consommation d'eau rapportée à 1 000 utilisateurs (en litres) : 38.64 (soit 4 packs d'eau minérale).
+* Émission de GES rapportée à 1 000 utilisateurs (kilos CO2e) : 2.58 (soit un trajet de 12 kms en voiture à énergie thermique).
 
 ## L'écoconception
 
