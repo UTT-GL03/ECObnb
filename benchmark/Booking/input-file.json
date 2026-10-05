@@ -1,0 +1,36 @@
+{
+  "output": [
+    "json",
+    "statement"
+  ],
+  "user-agent": "insights",
+  "output-name": "ecoindex",
+  "courses": [
+    {
+      "name": "Pages principales",
+      "target": "",
+      "course": "Accueil ; Recherche ; Annonce ; Annonce ; Recherche",
+      "is-best-pages": true,
+      "urls": [
+        "https://www.booking.com/index.fr.html",
+        "https://www.booking.com/searchresults.fr.html?ss=Paris",
+        "https://www.booking.com/hotel/fr/paris-rivoli-notre-dame.fr.html",
+        "https://www.booking.com/hotel/fr/mirific.fr.html",
+        "https://www.booking.com/searchresults.fr.html?ss=Nice"
+      ]
+    },
+    {
+      "name": "Rechercher et consulter des logements",
+      "target": "",
+      "course": "",
+      "is-best-pages": false,
+      "urls": [
+        "https://www.booking.com/index.fr.html",
+        "https://www.booking.com/searchresults.fr.html?ss=Paris",
+        "https://www.booking.com/hotel/fr/paris-rivoli-notre-dame.fr.html",
+        "https://www.booking.com/hotel/fr/mirific.fr.html",
+        "https://www.booking.com/searchresults.fr.html?ss=Nice"
+      ]
+    }
+  ]
+}

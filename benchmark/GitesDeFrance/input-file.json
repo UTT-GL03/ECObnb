@@ -1,0 +1,36 @@
+{
+  "output": [
+    "json",
+    "statement"
+  ],
+  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+  "output-name": "ecoindex",
+  "courses": [
+    {
+      "name": "Pages principales",
+      "target": "",
+      "course": "Accueil ; Destination ; Annonce ; Annonce ; Destination",
+      "is-best-pages": true,
+      "urls": [
+        "https://www.gites-de-france.com/fr",
+        "https://www.gites-de-france.com/fr/regions-de-france/bretagne",
+        "https://www.gites-de-france.com/fr/bretagne/cotes-darmor/labutilon-22g521012",
+        "https://www.gites-de-france.com/fr/bretagne/morbihan/la-ria-56g169147",
+        "https://www.gites-de-france.com/fr/regions-de-france/bretagne/location-de-vacances-ille-et-vilaine/locations-vacances-saint-malo"
+      ]
+    },
+    {
+      "name": "Rechercher et consulter des logements",
+      "target": "",
+      "course": "",
+      "is-best-pages": false,
+      "urls": [
+        "https://www.gites-de-france.com/fr",
+        "https://www.gites-de-france.com/fr/regions-de-france/bretagne",
+        "https://www.gites-de-france.com/fr/bretagne/cotes-darmor/labutilon-22g521012",
+        "https://www.gites-de-france.com/fr/bretagne/morbihan/la-ria-56g169147",
+        "https://www.gites-de-france.com/fr/regions-de-france/bretagne/location-de-vacances-ille-et-vilaine/locations-vacances-saint-malo"
+      ]
+    }
+  ]
+}
