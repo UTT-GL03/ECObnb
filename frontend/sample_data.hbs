@@ -11,30 +11,24 @@
       "capacity": {{int 1 8}},
       "rating": {{float 3 5 '0.0'}},
       "transit_distance": {{int 50 1500}},
-      "description": "{{#repeat min=1 max=5 comma=false}}{{lorem min=5 max=80}}\n\n{{/repeat}}"
-    }
-    {{/repeat}}
-  ],
-  "services": [
-    {{#repeat 25}}
-    {
-      "listing_id": {{@index}},
-      "wifi": {{boolean}},
-      "kitchen": {{boolean}},
-      "washing_machine": {{boolean}},
-      "heating": {{boolean}},
-      "bike_storage": {{boolean}}
-    }
-    {{/repeat}}
-  ],
-  "reviews": [
-    {{#repeat min=40 max=80}}
-    {
-      "listing_id": {{int 0 24}},
-      "author": "{{firstName}}",
-      "date": "{{date '2025-10-01' '2026-09-30' 'YYYY-MM-DD'}}",
-      "rating": {{int 1 5}},
-      "comment": "{{lorem min=5 max=40}}"
+      "description": "{{#repeat min=1 max=5 comma=false}}{{lorem min=5 max=80}}\n\n{{/repeat}}",
+      "services": {{#if (random true true true false)}}{
+        "wifi": {{boolean}},
+        "kitchen": {{boolean}},
+        "washing_machine": {{boolean}},
+        "heating": {{boolean}},
+        "bike_storage": {{boolean}}
+      }{{else}}null{{/if}},
+      "reviews": {{#if (random true true true false)}}[
+        {{#repeat min=1 max=6}}
+        {
+          "author": "{{firstName}}",
+          "date": "{{date '2025-10-01' '2026-09-30' 'YYYY-MM-DD'}}",
+          "rating": {{int 1 5}},
+          "comment": "{{lorem min=5 max=40}}"
+        }
+        {{/repeat}}
+      ]{{else}}null{{/if}}
     }
     {{/repeat}}
   ]
