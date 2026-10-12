@@ -185,6 +185,95 @@ Nous pourrons notamment comparer :
 * une page présentant un logement ;
 * la page de réservation.
 
+## Modèle économique et rentabilité
+
+Notre service repose uniquement sur une **commission prélevée sur chaque réservation**, payée par l'hôte. L'inscription et la publication d'une annonce sont gratuites : la plateforme ne gagne de l'argent que lorsqu'une réservation est effectuée.
+
+Nous excluons la **publicité** et la **revente de données**, incompatibles avec l'écoconception et la confiance des utilisateurs.
+
+### Hypothèses
+
+Les montants ci-dessous sont des **estimations** pour une phase de lancement dans une ou deux villes (montants HT, par mois).
+
+* Panier moyen d'une réservation : **150 €** (2 nuits à 75 €).
+* Coût moyen d'un employé pour l'entreprise : **3 500 € par mois**, charges patronales comprises (soit environ 2 414 € brut, les charges représentant environ 45 % du brut).
+* Frais du prestataire de paiement : environ **1,5 %** de chaque réservation.
+
+### Coûts de personnel
+
+| Poste | Nombre | Coût employeur mensuel par employé | Coût employeur total |
+|---|--:|--:|--:|
+| Développeur·se | 2 | 3 500 € | 7 000 € |
+| Designer UX/UI | 1 | 3 500 € | 3 500 € |
+| Chef·fe de projet | 1 | 3 500 € | 3 500 € |
+| Service client (conseillers voyageurs et hôtes : chat, e-mail, téléphone) | 2 | 3 500 € | 7 000 € |
+| Modération et vérification des annonces et des avis | 1 | 3 500 € | 3 500 € |
+| Commercial·e (recrutement des hôtes) | 1 | 3 500 € | 3 500 € |
+| **Total** | **8** | | **28 000 €** |
+
+### Autres coûts fixes
+
+| Poste | Coût mensuel |
+|---|--:|
+| Hébergement écoresponsable (serveurs, base de données, sauvegardes) | 600 € |
+| Outils (nom de domaine, e-mails, gestion de code, design, supervision) | 400 € |
+| Outils du service client (logiciel de tickets, chat, téléphonie) | 200 € |
+| Comptabilité et juridique (externalisés) | 1 000 € |
+| Assurances (responsabilité civile, garantie hôtes) | 500 € |
+| Marketing de lancement (référencement, événements locaux) | 2 000 € |
+| Locaux (coworking) | 1 500 € |
+| Sécurité et maintenance (audits, mises à jour) | 300 € |
+| **Total** | **6 500 €** |
+
+**Coûts fixes mensuels totaux : 28 000 € + 6 500 € = 34 500 €.**
+
+### Commission minimale pour être rentable
+
+Le service est à l'équilibre quand les commissions couvrent les coûts. Le taux de commission minimal se calcule ainsi :
+
+> **Commission minimale = coûts fixes ÷ volume de réservations + frais de paiement (1,5 %)**
+
+où le volume de réservations est le nombre de réservations × 150 €.
+
+| Réservations par mois | Volume de réservations | Commission minimale | Résultat mensuel avec une commission de 10 % |
+|--:|--:|--:|--:|
+| 1 000 | 150 000 € | 24,5 % | − 21 750 € |
+| 2 000 | 300 000 € | 13,0 % | − 9 000 € |
+| 3 000 | 450 000 € | 9,2 % | + 3 750 € |
+| 4 000 | 600 000 € | 7,3 % | + 16 500 € |
+| 5 000 | 750 000 € | 6,1 % | + 29 250 € |
+| 10 000 | 1 500 000 € | 3,8 % | + 93 000 € |
+
+### Lecture du tableau
+
+* Nous visons une commission de **10 %**, plus faible que celle d'Airbnb (environ 15 % au total), pour attirer les hôtes.
+* Chaque réservation rapporte en net 150 € × (10 % − 1,5 %) = **12,75 €**.
+* Il faut donc environ **275 réservations par mois** pour payer un employé (3 500 € ÷ 12,75 €).
+* Pour couvrir tous les coûts, il faut environ **2 710 réservations par mois** (34 500 € ÷ 12,75 €).
+* En dessous de ce seuil, le service est déficitaire : la phase de lancement doit être financée par des fonds propres ou une levée de fonds, le temps d'atteindre ce volume.
+* Au-delà de ce seuil, chaque réservation supplémentaire génère du bénéfice, car les coûts sont surtout fixes (salaires, locaux).
+* Un site sobre réduit aussi les coûts d'hébergement : l'écoconception est donc à la fois un argument environnemental et économique.
+
+## Maquette de l'interface et échantillon de données
+
+Au vu des différents services comparés, des exigences environnementales exprimées plus haut et des scénarios retenus, nous avons défini pour notre prototype une maquette de l'interface et un échantillon de données réalistes.
+
+Les ressources Web possédant une représentation sur notre application seront de quatre types :
+
+- la liste des logements (avec une HTTP-URI ayant pour chemin `/`) ou, plus spécifiquement, des logements d'une destination donnée (avec pour chemin `/?city={name}`),
+- un logement (avec pour chemin `/{id}`),
+- les services d'un logement (avec pour chemin `/{id}/services`),
+- les avis des voyageurs sur un logement (avec pour chemin `/{id}/reviews`).
+
+![Maquette des quatre types de page](./docs/mockup.svg)
+__Fig.1__: Maquette de l'interface du prototype : __a.__ type de page pour les "résultats" (tous les logements ou ceux d'une destination), __b.__ type de page d'un logement, __c.__ type de page des services d'un logement, __d.__ type de page des avis sur un logement.
+
+Dans un objectif de sobriété environnementale, les résultats sont pour l'instant limités à un petit nombre de logements (soit 20 à 30 logements).
+De même, les services et les avis d'un logement ne sont pas affichés sur la page du logement mais sur des pages séparées, accessibles par un lien : ils ne sont ainsi chargés que si le voyageur les demande.
+
+Pour des raisons de respect des droits d'auteurs et de protection des données personnelles des hôtes, nous utilisons des données générées (avec [`dummy-json`](https://dummyjson.com)).
+Bien que fictives, ces données correspondent à la structure des services concurrents : les logements comportent un titre possiblement long, une ville, un type, un hôte, un prix par nuit, une capacité, une note et une description, auxquels nous ajoutons la distance à l'arrêt de transport en commun le plus proche, nécessaire à notre indicateur de mobilité. Les services (wifi, cuisine, lave-linge, chauffage, local à vélos) et les avis des voyageurs (auteur, date, note, commentaire) sont stockés dans des collections séparées, reliées au logement par son identifiant, comme les pages qui les affichent (voir [modèle de données](./frontend/sample_data.hbs)).
+
 ## Conclusion
 
 Airbnb facilite les échanges entre voyageurs et hébergeurs et contribue à valoriser les logements existants. Cependant, il peut aussi encourager davantage de déplacements touristiques et donc augmenter son impact environnemental.
