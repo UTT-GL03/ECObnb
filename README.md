@@ -274,68 +274,36 @@ De même, les services et les avis d'un logement ne sont pas affichés sur la pa
 Pour des raisons de respect des droits d'auteurs et de protection des données personnelles des hôtes, nous utilisons des données générées (avec [`dummy-json`](https://dummyjson.com)).
 Bien que fictives, ces données correspondent à la structure des services concurrents : les logements comportent un titre possiblement long, une ville, un type, un hôte, un prix par nuit, une capacité, une note et une description, auxquels nous ajoutons la distance à l'arrêt de transport en commun le plus proche, nécessaire à notre indicateur de mobilité. Les services (wifi, cuisine, lave-linge, chauffage, local à vélos) et les avis des voyageurs (auteur, date, note, commentaire) sont rattachés directement au logement qu'ils concernent et peuvent être absents (`null`) lorsqu'un logement n'a pas renseigné ses services ou n'a pas encore reçu d'avis (voir [modèle de données](./frontend/sample_data.hbs)).
 
-## Prototype v1.0.0 — Impact résiduel estimé
+### Étape de prototypage : Consultation de la liste et du détail d'un logement
 
-### Périmètre fonctionnel
+Le scénario prioritaire est à présent implémentable et mesurable de bout en bout : la liste des 25 logements s'affiche sur la page d'accueil (`/`), et le voyageur peut consulter le détail d'un logement (`/{id}`) avant de revenir à la liste.
+Dans cette première version (`v1.0.0`), les données sont chargées de manière **statique** : elles sont intégrées directement dans le bundle JavaScript au moment du `build`, ce qui permet d'estimer un impact artificiel inférieur à la réalité (aucune requête réseau pour les données).
 
-Le scénario prioritaire implémenté est la **consultation de la liste des logements** (`/`) puis **le détail d'un logement** (`/{id}`). Les données (25 logements avec services et avis) sont chargées **de manière statique** : elles sont intégrées directement dans le bundle JavaScript au moment du build.
+|   | EcoIndex | GES (gCO2e) | Taille du DOM | Requêtes | Taille de la page (ko)
+|---|--------:|------------:|--------------:|---------:|---------------------:
+| 1. Consulter la liste des logements | 82 A 🟦 | 1,36 | 349 | 3 | 101
+| 2. Consulter le détail d'un logement | 94 A 🟦 | 1,13 | 62 | 3 | 1
+| 3. Revenir à la liste des logements | 94 A 🟦 | 1,13 | 349 | 3 | 1
 
-### Mesures en mode développement (`npm run dev`)
+__Tab.1__ : Évaluation de l'impact du scénario « Rechercher et consulter un logement » dans le prototype `v1.0.0` (données statiques dans le bundle JS, mesures réalisées en mode pré-production avec `lighthouse-plugin-ecoindex`).
 
-En mode développement, Vite sert chaque module séparément (pas de bundle). Le navigateur effectue de nombreuses requêtes HTTP vers le serveur de développement local. Ces requêtes ne reflètent pas la réalité de la production.
+Ces résultats sont à comparer avec [ceux des services concurrents](./benchmark/) mesurés précédemment : Airbnb obtient un grade G (9/100), Booking F (17/100) et Clévacances F (21/100). Notre prototype atteint le grade A dès la première page, avec des émissions environ **8 fois inférieures** à celles d'Airbnb.
+Ces estimations restent toutefois artificiellement basses : les données étant intégrées au bundle, le navigateur n'effectue qu'une seule requête réseau initiale, puis navigue entièrement côté client.
 
-| Page | Requêtes (env.) | Données transférées (env.) |
-|------|----------------:|---------------------------:|
-| Index (`/`) | ~20 | ~400 kB |
-| Détail (`/0`) | ~20 | ~400 kB |
+### Étape de prototypage : Données statiques chargées de manière dynamique
 
-### Mesures en mode pré-production (`npm run build` + `npm run preview`)
+Pour cette nouvelle version du prototype (`v1.0.1`), identique du point de vue fonctionnel, les données (toujours statiques) sont désormais chargées par le *frontend* à travers le réseau immédiatement après un premier affichage à vide, via `fetch()` et `useEffect()`.
+Ce comportement, plus réaliste, n'a pour effet qu'une requête supplémentaire lors du premier chargement de chaque page.
 
-En mode pré-production, Vite génère un bundle minifié. Les données sont intégrées dans le JS.
+|   | EcoIndex | GES (gCO2e) | Taille du DOM | Requêtes | Taille de la page (ko)
+|---|--------:|------------:|--------------:|---------:|---------------------:
+| 1. Consulter la liste des logements | 82 A 🟦 | 1,36 | 349 | 4 | 101
+| 2. Consulter le détail d'un logement | 94 A 🟦 | 1,13 | 62 | 4 | 1
+| 3. Revenir à la liste des logements | 94 A 🟦 | 1,13 | 349 | 4 | 1
 
-| Fichier | Taille brute | Taille gzippée |
-|---------|-------------:|---------------:|
-| `index.html` | 0,46 kB | 0,29 kB |
-| `index-*.css` (PicoCSS + styles) | 85,7 kB | 11,8 kB |
-| `index-*.js` (React + données + composants) | 281,7 kB | 89,9 kB |
-| **Total** | **367,9 kB** | **102,0 kB** |
+__Tab.2__ : Évaluation de l'impact du scénario « Rechercher et consulter un logement » dans le prototype `v1.0.1` (données chargées dynamiquement via `fetch()`, mesures réalisées en mode pré-production avec `lighthouse-plugin-ecoindex`).
 
-**Nombre de requêtes HTTP** : 3 (HTML + CSS + JS)
-
-Les données des 25 logements (services et avis inclus) sont embarquées dans le bundle JS. Avantage : aucune requête supplémentaire pour les données. Inconvénient : toutes les données sont chargées même si le voyageur ne consulte qu'un seul logement, et toute mise à jour des données impose un rebuild complet.
-
-## Prototype v1.0.1 — Données chargées dynamiquement
-
-### Changements apportés
-
-L'échantillon de données `sample_data.json` a été déplacé de `src/` vers `public/`. Il n'est plus intégré dans le bundle JavaScript mais servi comme fichier statique indépendant. Les composants utilisent désormais :
-
-- **`fetch()`** pour récupérer le fichier JSON,
-- **`Promise.then()`** pour chaîner le traitement de la réponse,
-- **`useEffect()`** pour déclencher le chargement au montage du composant (ou quand l'`id` change pour la page détail),
-- **`useState()`** pour stocker les données reçues et forcer le re-rendu — une variable classique ne provoquerait pas de mise à jour de l'interface.
-
-### Mesures en mode pré-production (`npm run build` + `npm run preview`)
-
-| Fichier | Taille brute | Taille gzippée |
-|---------|-------------:|---------------:|
-| `index.html` | 0,46 kB | 0,29 kB |
-| `index-*.css` (PicoCSS + styles) | 85,7 kB | 11,8 kB |
-| `index-*.js` (React + composants, sans données) | 269,9 kB | 86,5 kB |
-| `sample_data.json` (données logements) | 17,0 kB | 3,6 kB |
-| **Total** | **373,1 kB** | **102,2 kB** |
-
-**Nombre de requêtes HTTP** : 4 (HTML + CSS + JS + JSON)
-
-### Comparaison v1.0.0 → v1.0.1
-
-| Métrique | v1.0.0 (statique) | v1.0.1 (dynamique) | Évolution |
-|----------|------------------:|-------------------:|----------:|
-| Requêtes HTTP | 3 | 4 | +1 |
-| Total gzippé | 102,0 kB | 102,2 kB | ≈ stable |
-| Taille JS gzippé | 89,9 kB | 86,5 kB | −3,4 kB |
-
-Le nombre de requêtes augmente de 1, mais le volume transféré est quasi identique. Le bénéfice principal de la v1.0.1 est **opérationnel** : les données peuvent être mises à jour sans recompiler le bundle JavaScript.
+Par rapport au tableau précédent (cf. Tab.1), le nombre de requêtes est incrémenté de 1 sur chaque page (ajout de la requête `sample_data.json`), mais les résultats en termes d'EcoIndex et d'émissions restent strictement identiques grâce au cache navigateur à partir de la deuxième page.
 
 ## Conclusion
 
