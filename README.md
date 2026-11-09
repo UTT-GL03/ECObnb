@@ -274,36 +274,59 @@ De même, les services et les avis d'un logement ne sont pas affichés sur la pa
 Pour des raisons de respect des droits d'auteurs et de protection des données personnelles des hôtes, nous utilisons des données générées (avec [`dummy-json`](https://dummyjson.com)).
 Bien que fictives, ces données correspondent à la structure des services concurrents : les logements comportent un titre possiblement long, une ville, un type, un hôte, un prix par nuit, une capacité, une note et une description, auxquels nous ajoutons la distance à l'arrêt de transport en commun le plus proche, nécessaire à notre indicateur de mobilité. Les services (wifi, cuisine, lave-linge, chauffage, local à vélos) et les avis des voyageurs (auteur, date, note, commentaire) sont rattachés directement au logement qu'ils concernent et peuvent être absents (`null`) lorsqu'un logement n'a pas renseigné ses services ou n'a pas encore reçu d'avis (voir [modèle de données](./frontend/sample_data.hbs)).
 
-### Étape de prototypage : Consultation de la liste et du détail d'un logement
+### Étape de prototypage : Données chargées de manière statique
 
-Le scénario prioritaire est à présent implémentable et mesurable de bout en bout : la liste des 25 logements s'affiche sur la page d'accueil (`/`), et le voyageur peut consulter le détail d'un logement (`/{id}`) avant de revenir à la liste.
-Dans cette première version (`v1.0.0`), les données sont chargées de manière **statique** : elles sont intégrées directement dans le bundle JavaScript au moment du `build`, ce qui permet d'estimer un impact artificiel inférieur à la réalité (aucune requête réseau pour les données).
+Pour cette première version du prototype (`v1.0.0`) :
+
+- l'échantillon de données est encore chargé dans le code de manière statique (intégré dans le bundle JavaScript au moment du `build`),
+- les fonctionnalités implémentées sont celles nécessaires pour suivre le scénario prioritaire (« Rechercher et consulter un logement »).
+
+Ce scénario nécessite de pouvoir naviguer entre deux types de page : la page de la liste des logements et les pages de détail d'un logement.
+
+#### Page de la liste des logements
+
+Nous avons développé la page de la liste (cf. Fig. 2) pour qu'elle affiche l'échantillon de données sous une forme proche de ce que prévoyait la maquette. Un filtre par ville permet de réduire les résultats affichés.
+
+![Prototype de la page de la liste des logements](./docs/listings_screenshot.png)
+__Fig.2__ : Prototype de la page de la liste des logements.
+
+Nous avons choisi un *framework* de mise en page minimaliste (*PicoCSS*). Dans la suite du projet, nous vérifierons si l'impact environnemental du passage à un *framework* plus puissant (comme *Bootstrap*) serait acceptable.
+
+De même, nous avons décidé de ne pas inclure de photographies dans cette page. Même si ces photographies ont probablement un impact sur l'attention portée à une annonce, elles ne sont pas strictement requises pour la consultation de la liste et ne sont donc pas incluses dans le produit minimum viable. Si une telle fonctionnalité devait par la suite être introduite, il faudrait mettre en balance son utilité et son impact a priori important : à moins de mettre en place des techniques avancées d'optimisation, une requête supplémentaire serait nécessaire pour chaque image.
+
+Dans l'état actuel du prototype, il est possible d'avoir une première idée de l'impact environnemental du *frontend*. Il manque encore le chargement dynamique des données, mais nous pouvons déjà évaluer l'impact de l'affichage des données et du *framework* (au sens large : React, PicoCSS, DayJS). Cette évaluation (cf. Tab.4) est encourageante en mode « développement » mais encore plus en mode « pré-production », ce qui illustre l'effet positif de la minification et de la concaténation des ressources opérées par *Vite*.
 
 |   | EcoIndex | GES (gCO2e) | Taille du DOM | Requêtes | Taille de la page (ko)
 |---|--------:|------------:|--------------:|---------:|---------------------:
-| 1. Consulter la liste des logements | 82 A 🟦 | 1,36 | 349 | 3 | 101
-| 2. Consulter le détail d'un logement | 94 A 🟦 | 1,13 | 62 | 3 | 1
-| 3. Revenir à la liste des logements | 94 A 🟦 | 1,13 | 349 | 3 | 1
+| Mode « développement » | 66 C 🟨 | 1,68 | 350 | 21 | 5 162
+| Mode « pré-production » | 82 A 🟦 | 1,36 | 349 | 4 | 101
 
-__Tab.1__ : Évaluation de l'impact du scénario « Rechercher et consulter un logement » dans le prototype `v1.0.0` (données statiques dans le bundle JS, mesures réalisées en mode pré-production avec `lighthouse-plugin-ecoindex`).
+__Tab.4__ : Évaluation de l'impact de la page de la liste des logements en mode « développement » (`npm run dev`, port 5173) et en mode « pré-production » (`npm run build` + `npm run preview`, port 4173).
 
-Ces résultats sont à comparer avec [ceux des services concurrents](./benchmark/) mesurés précédemment : Airbnb obtient un grade G (9/100), Booking F (17/100) et Clévacances F (21/100). Notre prototype atteint le grade A dès la première page, avec des émissions environ **8 fois inférieures** à celles d'Airbnb.
-Ces estimations restent toutefois artificiellement basses : les données étant intégrées au bundle, le navigateur n'effectue qu'une seule requête réseau initiale, puis navigue entièrement côté client.
+#### Page de détail d'un logement
+
+Les pages de détail ont pour HTTP-URI `/{id}`. Nous avons implémenté cette page (cf. Fig. 3) conformément à ce que prévoyait la maquette, en affichant la description du logement, ses services et les avis des voyageurs.
+
+![Prototype de la page de détail d'un logement](./docs/listing_screenshot.png)
+__Fig.3__ : Prototype de la page de détail d'un logement.
+
+Avec l'ajout de ce modèle de page et la navigation entre les deux types de page, il devient possible d'exécuter le scénario prioritaire complet et de mesurer son impact (cf. Tab.5).
+
+|   | EcoIndex | GES (gCO2e) | Taille du DOM | Requêtes | Taille de la page (ko)
+|---|--------:|------------:|--------------:|---------:|---------------------:
+| 1. Consulter la liste des logements   | 82 A 🟦 | 1,36 | 349 | 3 | 101
+| 2. Consulter le détail d'un logement  | 94 A 🟦 | 1,13 |  62 | 3 |   1
+| 3. Revenir à la liste et choisir un autre logement | 94 A 🟦 | 1,12 |  57 | 3 |   1
+
+__Tab.5__ : Évaluation de l'impact du scénario « Rechercher et consulter un logement » dans le prototype `v1.0.0` (mesures réalisées en mode pré-production avec `lighthouse-plugin-ecoindex`).
+
+Ces estimations, bien qu'artificiellement basses (les données étant intégrées au bundle, aucune requête réseau n'est effectuée pour les données elles-mêmes), sont tout de même à comparer avec [celles des services concurrents](./benchmark/) mesurés précédemment : Airbnb obtient un grade G (9/100), Booking F (17/100) et Clévacances F (21/100). Notre prototype atteint le grade A dès la première page, avec des émissions environ **8 fois inférieures** à celles d'Airbnb.
 
 ### Étape de prototypage : Données statiques chargées de manière dynamique
 
-Pour cette nouvelle version du prototype (`v1.0.1`), identique du point de vue fonctionnel, les données (toujours statiques) sont désormais chargées par le *frontend* à travers le réseau immédiatement après un premier affichage à vide, via `fetch()` et `useEffect()`.
-Ce comportement, plus réaliste, n'a pour effet qu'une requête supplémentaire lors du premier chargement de chaque page.
+Pour cette nouvelle version du prototype (`v1.0.1`), identique du point de vue fonctionnel, les données (toujours statiques) sont désormais chargées par le *frontend* à travers le réseau immédiatement après un premier affichage à vide, via `fetch()` et `useEffect()`. Ce comportement, plus réaliste, n'a pour effet qu'une requête supplémentaire par page affichée.
 
-|   | EcoIndex | GES (gCO2e) | Taille du DOM | Requêtes | Taille de la page (ko)
-|---|--------:|------------:|--------------:|---------:|---------------------:
-| 1. Consulter la liste des logements | 82 A 🟦 | 1,36 | 349 | 4 | 101
-| 2. Consulter le détail d'un logement | 94 A 🟦 | 1,13 | 62 | 4 | 1
-| 3. Revenir à la liste des logements | 94 A 🟦 | 1,13 | 349 | 4 | 1
-
-__Tab.2__ : Évaluation de l'impact du scénario « Rechercher et consulter un logement » dans le prototype `v1.0.1` (données chargées dynamiquement via `fetch()`, mesures réalisées en mode pré-production avec `lighthouse-plugin-ecoindex`).
-
-Par rapport au tableau précédent (cf. Tab.1), le nombre de requêtes est incrémenté de 1 sur chaque page (ajout de la requête `sample_data.json`), mais les résultats en termes d'EcoIndex et d'émissions restent strictement identiques grâce au cache navigateur à partir de la deuxième page.
+Concernant l'évaluation de l'impact environnemental du scénario, par rapport au tableau précédent (cf. Tab.5), à l'exception du nombre de requêtes qui est incrémenté de 1, les résultats sont strictement identiques grâce au cache navigateur à partir de la deuxième page.
 
 ## Conclusion
 
