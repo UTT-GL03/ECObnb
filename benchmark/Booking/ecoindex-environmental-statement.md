@@ -26,6 +26,7 @@ L'analyse indiquée a été effectuée le Mon Oct 05 2026, elle est susceptible 
 
 ### Page 1 : https://www.booking.com/index.fr.html
 
+
 |Grade|Ecoindex|Eau (cl)|GES (gCO2e)|Nb de requêtes|Taille de la page (Ko)|Taille du DOM|
 |---|---|---|---|---|---|---|
 |F|18/100|39.50|2.63|101|3263.823|4106|
