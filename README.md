@@ -274,6 +274,40 @@ De même, les services et les avis d'un logement ne sont pas affichés sur la pa
 Pour des raisons de respect des droits d'auteurs et de protection des données personnelles des hôtes, nous utilisons des données générées (avec [`dummy-json`](https://dummyjson.com)).
 Bien que fictives, ces données correspondent à la structure des services concurrents : les logements comportent un titre possiblement long, une ville, un type, un hôte, un prix par nuit, une capacité, une note et une description, auxquels nous ajoutons la distance à l'arrêt de transport en commun le plus proche, nécessaire à notre indicateur de mobilité. Les services (wifi, cuisine, lave-linge, chauffage, local à vélos) et les avis des voyageurs (auteur, date, note, commentaire) sont rattachés directement au logement qu'ils concernent et peuvent être absents (`null`) lorsqu'un logement n'a pas renseigné ses services ou n'a pas encore reçu d'avis (voir [modèle de données](./frontend/sample_data.hbs)).
 
+## Prototype v1.0.0 — Impact résiduel estimé
+
+### Périmètre fonctionnel
+
+Le scénario prioritaire implémenté est la **consultation de la liste des logements** (`/`) puis **le détail d'un logement** (`/{id}`). Les données (25 logements avec services et avis) sont chargées **de manière statique** : elles sont intégrées directement dans le bundle JavaScript au moment du build.
+
+### Mesures en mode développement (`npm run dev`)
+
+En mode développement, Vite sert chaque module séparément (pas de bundle). Le navigateur effectue de nombreuses requêtes HTTP vers le serveur de développement local. Ces requêtes ne reflètent pas la réalité de la production.
+
+| Page | Requêtes (env.) | Données transférées (env.) |
+|------|----------------:|---------------------------:|
+| Index (`/`) | ~20 | ~400 kB |
+| Détail (`/0`) | ~20 | ~400 kB |
+
+### Mesures en mode pré-production (`npm run build` + `npm run preview`)
+
+En mode pré-production, Vite génère un bundle minifié. Les données sont intégrées dans le JS.
+
+| Fichier | Taille brute | Taille gzippée |
+|---------|-------------:|---------------:|
+| `index.html` | 0,46 kB | 0,29 kB |
+| `index-*.css` (PicoCSS + styles) | 85,7 kB | 11,8 kB |
+| `index-*.js` (React + données + composants) | 281,7 kB | 89,9 kB |
+| **Total** | **367,9 kB** | **102,0 kB** |
+
+**Nombre de requêtes HTTP** : 3 (HTML + CSS + JS)
+
+Les données des 25 logements (services et avis inclus) sont embarquées dans le bundle JS. Avantage : aucune requête supplémentaire pour les données. Inconvénient : toutes les données sont chargées même si le voyageur ne consulte qu'un seul logement, et toute mise à jour des données impose un rebuild complet.
+
+## Prototype v1.0.1 — Données chargées dynamiquement
+
+Voir la section suivante pour les mesures après migration vers un chargement dynamique via `fetch()`.
+
 ## Conclusion
 
 Airbnb facilite les échanges entre voyageurs et hébergeurs et contribue à valoriser les logements existants. Cependant, il peut aussi encourager davantage de déplacements touristiques et donc augmenter son impact environnemental.
