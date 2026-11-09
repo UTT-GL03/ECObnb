@@ -306,7 +306,36 @@ Les données des 25 logements (services et avis inclus) sont embarquées dans le
 
 ## Prototype v1.0.1 — Données chargées dynamiquement
 
-Voir la section suivante pour les mesures après migration vers un chargement dynamique via `fetch()`.
+### Changements apportés
+
+L'échantillon de données `sample_data.json` a été déplacé de `src/` vers `public/`. Il n'est plus intégré dans le bundle JavaScript mais servi comme fichier statique indépendant. Les composants utilisent désormais :
+
+- **`fetch()`** pour récupérer le fichier JSON,
+- **`Promise.then()`** pour chaîner le traitement de la réponse,
+- **`useEffect()`** pour déclencher le chargement au montage du composant (ou quand l'`id` change pour la page détail),
+- **`useState()`** pour stocker les données reçues et forcer le re-rendu — une variable classique ne provoquerait pas de mise à jour de l'interface.
+
+### Mesures en mode pré-production (`npm run build` + `npm run preview`)
+
+| Fichier | Taille brute | Taille gzippée |
+|---------|-------------:|---------------:|
+| `index.html` | 0,46 kB | 0,29 kB |
+| `index-*.css` (PicoCSS + styles) | 85,7 kB | 11,8 kB |
+| `index-*.js` (React + composants, sans données) | 269,9 kB | 86,5 kB |
+| `sample_data.json` (données logements) | 17,0 kB | 3,6 kB |
+| **Total** | **373,1 kB** | **102,2 kB** |
+
+**Nombre de requêtes HTTP** : 4 (HTML + CSS + JS + JSON)
+
+### Comparaison v1.0.0 → v1.0.1
+
+| Métrique | v1.0.0 (statique) | v1.0.1 (dynamique) | Évolution |
+|----------|------------------:|-------------------:|----------:|
+| Requêtes HTTP | 3 | 4 | +1 |
+| Total gzippé | 102,0 kB | 102,2 kB | ≈ stable |
+| Taille JS gzippé | 89,9 kB | 86,5 kB | −3,4 kB |
+
+Le nombre de requêtes augmente de 1, mais le volume transféré est quasi identique. Le bénéfice principal de la v1.0.1 est **opérationnel** : les données peuvent être mises à jour sans recompiler le bundle JavaScript.
 
 ## Conclusion
 

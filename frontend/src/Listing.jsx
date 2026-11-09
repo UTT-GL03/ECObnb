@@ -1,7 +1,7 @@
+import { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router'
 import dayjs from 'dayjs'
 import 'dayjs/locale/fr'
-import data from './sample_data.json'
 
 dayjs.locale('fr')
 
@@ -43,7 +43,19 @@ function Reviews({ reviews }) {
 
 function Listing() {
   const { id } = useParams()
-  const listing = data.listings.find(l => l.id === Number(id))
+  const [listing, setListing] = useState(null)
+
+  useEffect(() => {
+    fetch('/sample_data.json')
+      .then(r => r.json())
+      .then(data => {
+        setListing(data.listings.find(l => l.id === Number(id)))
+      })
+  }, [id])
+
+  if (listing === null) {
+    return <main className="container"><p aria-busy="true">Chargement…</p></main>
+  }
 
   if (!listing) {
     return (
