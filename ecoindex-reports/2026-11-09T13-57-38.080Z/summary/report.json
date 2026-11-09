@@ -1,0 +1,170 @@
+[
+	[
+		{
+			"url": "http://localhost:4173/",
+			"score": "0.95",
+			"detail": {
+				"performance": 1,
+				"accessibility": 1,
+				"best-practices": 1,
+				"seo": 0.82,
+				"lighthouse-plugin-ecoindex-core": 0.82
+			},
+			"ecoindex": {
+				"eco-index-score": {
+					"score": "0.82",
+					"displayValue": "82/100"
+				},
+				"eco-index-grade": {
+					"score": "A",
+					"displayValue": "A"
+				},
+				"eco-index-water": {
+					"score": "2.04",
+					"displayValue": "2.04 cl"
+				},
+				"eco-index-ghg": {
+					"score": "1.36",
+					"displayValue": "1.36 g eqCO2"
+				},
+				"eco-index-nodes": {
+					"score": 349,
+					"displayValue": "349 DOM elements"
+				},
+				"eco-index-size": {
+					"score": 103892,
+					"displayValue": "104 KiB (transfered)"
+				},
+				"eco-index-requests": {
+					"score": 4,
+					"displayValue": "4 requests"
+				}
+			}
+		},
+		{
+			"url": "http://localhost:4173/3",
+			"score": "0.95",
+			"detail": {
+				"performance": 1,
+				"accessibility": 1,
+				"best-practices": 1,
+				"seo": 0.82,
+				"lighthouse-plugin-ecoindex-core": 0.94
+			},
+			"ecoindex": {
+				"eco-index-score": {
+					"score": "0.94",
+					"displayValue": "94/100"
+				},
+				"eco-index-grade": {
+					"score": "A",
+					"displayValue": "A"
+				},
+				"eco-index-water": {
+					"score": "1.69",
+					"displayValue": "1.69 cl"
+				},
+				"eco-index-ghg": {
+					"score": "1.13",
+					"displayValue": "1.13 g eqCO2"
+				},
+				"eco-index-nodes": {
+					"score": 62,
+					"displayValue": "62 DOM elements"
+				},
+				"eco-index-size": {
+					"score": 1197,
+					"displayValue": "1 KiB (transfered)"
+				},
+				"eco-index-requests": {
+					"score": 4,
+					"displayValue": "4 requests"
+				}
+			}
+		}
+	],
+	[
+		{
+			"url": "http://localhost:4173/",
+			"score": "0.95",
+			"detail": {
+				"performance": 1,
+				"accessibility": 1,
+				"best-practices": 1,
+				"seo": 0.82,
+				"lighthouse-plugin-ecoindex-core": 0.82
+			},
+			"ecoindex": {
+				"eco-index-score": {
+					"score": "0.82",
+					"displayValue": "82/100"
+				},
+				"eco-index-grade": {
+					"score": "A",
+					"displayValue": "A"
+				},
+				"eco-index-water": {
+					"score": "2.04",
+					"displayValue": "2.04 cl"
+				},
+				"eco-index-ghg": {
+					"score": "1.36",
+					"displayValue": "1.36 g eqCO2"
+				},
+				"eco-index-nodes": {
+					"score": 349,
+					"displayValue": "349 DOM elements"
+				},
+				"eco-index-size": {
+					"score": 103892,
+					"displayValue": "104 KiB (transfered)"
+				},
+				"eco-index-requests": {
+					"score": 4,
+					"displayValue": "4 requests"
+				}
+			}
+		},
+		{
+			"url": "http://localhost:4173/3",
+			"score": "0.95",
+			"detail": {
+				"performance": 1,
+				"accessibility": 1,
+				"best-practices": 1,
+				"seo": 0.82,
+				"lighthouse-plugin-ecoindex-core": 0.94
+			},
+			"ecoindex": {
+				"eco-index-score": {
+					"score": "0.94",
+					"displayValue": "94/100"
+				},
+				"eco-index-grade": {
+					"score": "A",
+					"displayValue": "A"
+				},
+				"eco-index-water": {
+					"score": "1.69",
+					"displayValue": "1.69 cl"
+				},
+				"eco-index-ghg": {
+					"score": "1.13",
+					"displayValue": "1.13 g eqCO2"
+				},
+				"eco-index-nodes": {
+					"score": 62,
+					"displayValue": "62 DOM elements"
+				},
+				"eco-index-size": {
+					"score": 1197,
+					"displayValue": "1 KiB (transfered)"
+				},
+				"eco-index-requests": {
+					"score": 4,
+					"displayValue": "4 requests"
+				}
+			}
+		}
+	]
+]
