@@ -1,5 +1,5 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router'
-import data from './sample_data.json'
 
 function TransitBadge({ meters }) {
   const cls = meters <= 300 ? 'transit-green' : meters <= 700 ? 'transit-orange' : 'transit-red'
@@ -26,7 +26,14 @@ function ListingCard({ id, city, type, title, host, price, capacity, rating, tra
 }
 
 function Listings() {
-  const { listings } = data
+  const [listings, setListings] = useState([])
+
+  useEffect(() => {
+    fetch('/sample_data.json')
+      .then(r => r.json())
+      .then(data => setListings(data.listings))
+  }, [])
+
   return (
     <main className="container">
       <h2>Logements disponibles <small>({listings.length} résultats)</small></h2>
