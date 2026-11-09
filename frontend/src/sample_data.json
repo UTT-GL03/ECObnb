@@ -1,0 +1,404 @@
+{
+  "listings": [
+    {
+      "id": 0,
+      "city": "Paris",
+      "type": "Appartement",
+      "title": "Charmant appartement lumineux au cœur de Montmartre",
+      "host": "Sophie Dubois",
+      "price": 95,
+      "capacity": 4,
+      "rating": 4.8,
+      "transit_distance": 120,
+      "description": "Magnifique appartement rénové avec vue sur les toits de Paris. Proche du métro et de tous les commerces.\n\nIdéal pour découvrir la capitale à pied ou en transports en commun.",
+      "services": { "wifi": true, "kitchen": true, "washing_machine": true, "heating": true, "bike_storage": false },
+      "reviews": [
+        { "author": "Marie", "date": "2026-03-15", "rating": 5, "comment": "Superbe appartement, très bien situé. Hôte très sympa !" },
+        { "author": "Thomas", "date": "2026-05-02", "rating": 4, "comment": "Logement propre et confortable, bonne literie." }
+      ]
+    },
+    {
+      "id": 1,
+      "city": "Lyon",
+      "type": "Studio",
+      "title": "Studio moderne proche Presqu'île",
+      "host": "Antoine Martin",
+      "price": 55,
+      "capacity": 2,
+      "rating": 4.3,
+      "transit_distance": 200,
+      "description": "Studio tout équipé dans le quartier des Brotteaux, à deux pas du métro.",
+      "services": { "wifi": true, "kitchen": true, "washing_machine": false, "heating": true, "bike_storage": true },
+      "reviews": [
+        { "author": "Julie", "date": "2026-01-20", "rating": 4, "comment": "Très bon rapport qualité-prix, quartier calme." }
+      ]
+    },
+    {
+      "id": 2,
+      "city": "Marseille",
+      "type": "Appartement",
+      "title": "Appartement avec vue mer au Vieux-Port",
+      "host": "Isabelle Blanc",
+      "price": 120,
+      "capacity": 3,
+      "rating": 4.6,
+      "transit_distance": 85,
+      "description": "Vue imprenable sur la Méditerranée depuis ce bel appartement refait à neuf.\n\nAccès facile aux plages et transports.",
+      "services": { "wifi": true, "kitchen": true, "washing_machine": true, "heating": false, "bike_storage": false },
+      "reviews": [
+        { "author": "Paul", "date": "2026-07-10", "rating": 5, "comment": "Vue magnifique, appartement parfait !" },
+        { "author": "Claire", "date": "2026-08-05", "rating": 4, "comment": "Très bien situé, quartier animé." },
+        { "author": "David", "date": "2026-09-01", "rating": 5, "comment": "Hôte très accueillant, je recommande." }
+      ]
+    },
+    {
+      "id": 3,
+      "city": "Bordeaux",
+      "type": "Maison",
+      "title": "Maison bordelaise avec jardin proche tram",
+      "host": "Nathalie Leroy",
+      "price": 140,
+      "capacity": 6,
+      "rating": 4.9,
+      "transit_distance": 350,
+      "description": "Grande maison avec jardin privatif dans quartier résidentiel calme. Arrêt de tram à 350 m.",
+      "services": { "wifi": true, "kitchen": true, "washing_machine": true, "heating": true, "bike_storage": true },
+      "reviews": [
+        { "author": "Lucas", "date": "2026-04-18", "rating": 5, "comment": "Maison magnifique, hôte parfait, on reviendra !" }
+      ]
+    },
+    {
+      "id": 4,
+      "city": "Nantes",
+      "type": "Appartement",
+      "title": "Appartement cosy île de Nantes",
+      "host": "Pierre Moreau",
+      "price": 70,
+      "capacity": 2,
+      "rating": 4.4,
+      "transit_distance": 150,
+      "description": "Appartement moderne et lumineux sur l'île de Nantes. Tram et bus à portée de main.",
+      "services": { "wifi": true, "kitchen": true, "washing_machine": false, "heating": true, "bike_storage": true },
+      "reviews": null
+    },
+    {
+      "id": 5,
+      "city": "Strasbourg",
+      "type": "Chambre chez l'habitant",
+      "title": "Chambre chaleureuse proche cathédrale",
+      "host": "Emma Wagner",
+      "price": 45,
+      "capacity": 1,
+      "rating": 4.7,
+      "transit_distance": 95,
+      "description": "Chambre dans appartement alsacien typique à 5 min à pied de la cathédrale.",
+      "services": { "wifi": true, "kitchen": false, "washing_machine": false, "heating": true, "bike_storage": false },
+      "reviews": [
+        { "author": "Sophie", "date": "2026-02-14", "rating": 5, "comment": "Emma est une hôte formidable, très accueillante." },
+        { "author": "Kevin", "date": "2026-06-22", "rating": 4, "comment": "Chambre propre, petit-déjeuner offert, top !" }
+      ]
+    },
+    {
+      "id": 6,
+      "city": "Lille",
+      "type": "Appartement",
+      "title": "Loft rénové dans le Vieux-Lille",
+      "host": "François Bernard",
+      "price": 85,
+      "capacity": 3,
+      "rating": 4.5,
+      "transit_distance": 180,
+      "description": "Magnifique loft avec poutres apparentes dans le cœur historique de Lille.",
+      "services": { "wifi": true, "kitchen": true, "washing_machine": true, "heating": true, "bike_storage": false },
+      "reviews": [
+        { "author": "Anna", "date": "2026-03-30", "rating": 5, "comment": "Superbe loft, très beau quartier, je recommande vivement." }
+      ]
+    },
+    {
+      "id": 7,
+      "city": "Paris",
+      "type": "Studio",
+      "title": "Studio calme et ensoleillé République",
+      "host": "Laura Petit",
+      "price": 80,
+      "capacity": 2,
+      "rating": 4.2,
+      "transit_distance": 110,
+      "description": "Studio bien agencé proche de la place de la République. Métros 3, 5, 8, 9, 11 à deux pas.",
+      "services": { "wifi": true, "kitchen": true, "washing_machine": false, "heating": true, "bike_storage": false },
+      "reviews": null
+    },
+    {
+      "id": 8,
+      "city": "Lyon",
+      "type": "Appartement",
+      "title": "T2 confortable Croix-Rousse avec terrasse",
+      "host": "Marc Dupont",
+      "price": 90,
+      "capacity": 3,
+      "rating": 4.6,
+      "transit_distance": 230,
+      "description": "Appartement lumineux avec terrasse sur les pentes de la Croix-Rousse.\n\nVue sur la ville, accès bus.",
+      "services": { "wifi": true, "kitchen": true, "washing_machine": true, "heating": true, "bike_storage": true },
+      "reviews": [
+        { "author": "Lucie", "date": "2026-05-12", "rating": 5, "comment": "Terrasse superbe, quartier animé et sympa." },
+        { "author": "Romain", "date": "2026-07-25", "rating": 4, "comment": "Très bien, propre et calme, hôte disponible." }
+      ]
+    },
+    {
+      "id": 9,
+      "city": "Troyes",
+      "type": "Maison",
+      "title": "Maison à colombages en centre historique",
+      "host": "Brigitte Arnaud",
+      "price": 110,
+      "capacity": 5,
+      "rating": 4.8,
+      "transit_distance": 450,
+      "description": "Authentique maison à colombages du XVIe siècle dans le centre historique de Troyes.",
+      "services": { "wifi": true, "kitchen": true, "washing_machine": true, "heating": true, "bike_storage": false },
+      "reviews": [
+        { "author": "Henri", "date": "2026-04-05", "rating": 5, "comment": "Maison de caractère, hôte adorable, dépaysement total !" }
+      ]
+    },
+    {
+      "id": 10,
+      "city": "Bordeaux",
+      "type": "Appartement",
+      "title": "Appartement art déco cours de l'Intendance",
+      "host": "Céline Roux",
+      "price": 105,
+      "capacity": 2,
+      "rating": 4.4,
+      "transit_distance": 70,
+      "description": "Beau parquet, moulures et hauts plafonds dans cet appartement haussmannien central.",
+      "services": { "wifi": true, "kitchen": true, "washing_machine": false, "heating": true, "bike_storage": false },
+      "reviews": [
+        { "author": "Élodie", "date": "2026-06-18", "rating": 4, "comment": "Très bel appartement, bien situé, calme." }
+      ]
+    },
+    {
+      "id": 11,
+      "city": "Marseille",
+      "type": "Studio",
+      "title": "Studio design proche gare Saint-Charles",
+      "host": "Omar Khalil",
+      "price": 50,
+      "capacity": 2,
+      "rating": 4.1,
+      "transit_distance": 160,
+      "description": "Studio rénové avec goût, à 10 min à pied de la gare et du métro.",
+      "services": { "wifi": true, "kitchen": true, "washing_machine": false, "heating": false, "bike_storage": false },
+      "reviews": null
+    },
+    {
+      "id": 12,
+      "city": "Nantes",
+      "type": "Maison",
+      "title": "Maison de ville avec cour fleurie centre Nantes",
+      "host": "Audrey Simon",
+      "price": 160,
+      "capacity": 7,
+      "rating": 4.9,
+      "transit_distance": 280,
+      "description": "Grande maison de ville avec cour intérieure fleurie. Idéale pour les familles.\n\nTram à 300m.",
+      "services": { "wifi": true, "kitchen": true, "washing_machine": true, "heating": true, "bike_storage": true },
+      "reviews": [
+        { "author": "Mathieu", "date": "2026-08-20", "rating": 5, "comment": "Maison superbe, cour magnifique, hôte très disponible." },
+        { "author": "Stéphanie", "date": "2026-09-10", "rating": 5, "comment": "Parfait pour toute la famille, on a adoré !" }
+      ]
+    },
+    {
+      "id": 13,
+      "city": "Paris",
+      "type": "Appartement",
+      "title": "Grand appartement familial Nation 4 chambres",
+      "host": "Christophe Lefebvre",
+      "price": 185,
+      "capacity": 8,
+      "rating": 4.3,
+      "transit_distance": 95,
+      "description": "Spacieux appartement familial à Nation. 4 chambres, grande cuisine équipée.\n\nMétro à 2 min.",
+      "services": { "wifi": true, "kitchen": true, "washing_machine": true, "heating": true, "bike_storage": false },
+      "reviews": [
+        { "author": "Patricia", "date": "2026-07-14", "rating": 4, "comment": "Grand appartement, idéal pour notre famille nombreuse." }
+      ]
+    },
+    {
+      "id": 14,
+      "city": "Strasbourg",
+      "type": "Appartement",
+      "title": "Appartement Petite-France vue canal",
+      "host": "Julia Muller",
+      "price": 115,
+      "capacity": 3,
+      "rating": 4.7,
+      "transit_distance": 130,
+      "description": "Dans le quartier pittoresque de la Petite-France, cet appartement bénéficie d'une vue canal exceptionnelle.",
+      "services": { "wifi": true, "kitchen": true, "washing_machine": true, "heating": true, "bike_storage": true },
+      "reviews": [
+        { "author": "Isabelle", "date": "2026-05-25", "rating": 5, "comment": "Vue magnifique, appartement parfait, hôte parfaite !" },
+        { "author": "Nicolas", "date": "2026-08-12", "rating": 4, "comment": "Très beau logement, quartier touristique mais calme." }
+      ]
+    },
+    {
+      "id": 15,
+      "city": "Lille",
+      "type": "Studio",
+      "title": "Studio étudiant lumineux Wazemmes",
+      "host": "Alexis Fontaine",
+      "price": 40,
+      "capacity": 1,
+      "rating": 3.9,
+      "transit_distance": 320,
+      "description": "Studio fonctionnel dans le quartier branché de Wazemmes. Marché, bars et transports proches.",
+      "services": { "wifi": true, "kitchen": true, "washing_machine": false, "heating": true, "bike_storage": false },
+      "reviews": null
+    },
+    {
+      "id": 16,
+      "city": "Troyes",
+      "type": "Chambre chez l'habitant",
+      "title": "Chambre dans maison familiale proche usines",
+      "host": "Martine Collin",
+      "price": 35,
+      "capacity": 1,
+      "rating": 4.5,
+      "transit_distance": 600,
+      "description": "Chambre agréable chez l'habitant. Petit-déjeuner inclus sur demande. Bus à 600m.",
+      "services": null,
+      "reviews": [
+        { "author": "Samuel", "date": "2026-02-08", "rating": 5, "comment": "Accueil chaleureux, chambre propre, je recommande." }
+      ]
+    },
+    {
+      "id": 17,
+      "city": "Lyon",
+      "type": "Studio",
+      "title": "Studio neuf Part-Dieu quartier d'affaires",
+      "host": "Kevin Girard",
+      "price": 65,
+      "capacity": 2,
+      "rating": 4.0,
+      "transit_distance": 60,
+      "description": "Studio tout neuf à deux pas de la gare Part-Dieu et du centre commercial. Idéal pro.",
+      "services": { "wifi": true, "kitchen": true, "washing_machine": false, "heating": true, "bike_storage": false },
+      "reviews": [
+        { "author": "Benjamin", "date": "2026-04-22", "rating": 4, "comment": "Très pratique pour un séjour professionnel, bien équipé." }
+      ]
+    },
+    {
+      "id": 18,
+      "city": "Paris",
+      "type": "Chambre chez l'habitant",
+      "title": "Chambre lumineuse Marais chez artiste",
+      "host": "Véronique Chevalier",
+      "price": 60,
+      "capacity": 1,
+      "rating": 4.6,
+      "transit_distance": 145,
+      "description": "Chambre chez une artiste parisienne dans son atelier du Marais. Ambiance unique.",
+      "services": { "wifi": true, "kitchen": false, "washing_machine": false, "heating": true, "bike_storage": false },
+      "reviews": [
+        { "author": "Amandine", "date": "2026-03-05", "rating": 5, "comment": "Expérience insolite et magnifique, hôte formidable !" },
+        { "author": "Yannick", "date": "2026-06-11", "rating": 4, "comment": "Cadre artistique superbe, très bonne situation." }
+      ]
+    },
+    {
+      "id": 19,
+      "city": "Bordeaux",
+      "type": "Maison",
+      "title": "Villa avec piscine banlieue proche tram B",
+      "host": "Gilles Renard",
+      "price": 230,
+      "capacity": 8,
+      "rating": 4.8,
+      "transit_distance": 980,
+      "description": "Grande villa avec piscine chauffée, 4 chambres, jardin. Arrêt tram B à 1km.\n\nIdéale pour les groupes.",
+      "services": { "wifi": true, "kitchen": true, "washing_machine": true, "heating": true, "bike_storage": true },
+      "reviews": [
+        { "author": "Laurence", "date": "2026-07-30", "rating": 5, "comment": "Villa de rêve, piscine top, hôte très disponible !" }
+      ]
+    },
+    {
+      "id": 20,
+      "city": "Marseille",
+      "type": "Appartement",
+      "title": "Appartement lumineux 13e arrondissement",
+      "host": "Rachid Benali",
+      "price": 65,
+      "capacity": 3,
+      "rating": 4.2,
+      "transit_distance": 290,
+      "description": "Appartement moderne dans le 13e arrondissement, proche de toutes commodités.",
+      "services": { "wifi": true, "kitchen": true, "washing_machine": true, "heating": false, "bike_storage": false },
+      "reviews": null
+    },
+    {
+      "id": 21,
+      "city": "Nantes",
+      "type": "Studio",
+      "title": "Studio hipster Bouffay 2 min tram",
+      "host": "Clémence Vidal",
+      "price": 60,
+      "capacity": 2,
+      "rating": 4.4,
+      "transit_distance": 115,
+      "description": "Studio décoré avec goût dans le quartier médiéval du Bouffay. Tram, bars et restos à pied.",
+      "services": { "wifi": true, "kitchen": true, "washing_machine": false, "heating": true, "bike_storage": false },
+      "reviews": [
+        { "author": "Roxane", "date": "2026-09-15", "rating": 4, "comment": "Super studio, quartier parfait pour sortir, hôte sympa." }
+      ]
+    },
+    {
+      "id": 22,
+      "city": "Strasbourg",
+      "type": "Maison",
+      "title": "Maison alsacienne avec jacuzzi Robertsau",
+      "host": "Fabrice Schmitt",
+      "price": 195,
+      "capacity": 6,
+      "rating": 4.9,
+      "transit_distance": 420,
+      "description": "Magnifique maison alsacienne avec jacuzzi et jardin dans le quartier verdoyant du Robertsau.\n\nBus 30 à 420m.",
+      "services": { "wifi": true, "kitchen": true, "washing_machine": true, "heating": true, "bike_storage": true },
+      "reviews": [
+        { "author": "Delphine", "date": "2026-05-18", "rating": 5, "comment": "Maison magnifique, jacuzzi top, nous reviendrons !" },
+        { "author": "Tristan", "date": "2026-08-02", "rating": 5, "comment": "Accueil exceptionnel, maison de charme absolue." }
+      ]
+    },
+    {
+      "id": 23,
+      "city": "Lille",
+      "type": "Appartement",
+      "title": "Appartement cosy Euralille proche gare",
+      "host": "Pauline Lambert",
+      "price": 75,
+      "capacity": 2,
+      "rating": 4.3,
+      "transit_distance": 85,
+      "description": "Appartement moderne et calme à deux pas de la gare Lille-Europe et du métro.",
+      "services": { "wifi": true, "kitchen": true, "washing_machine": false, "heating": true, "bike_storage": false },
+      "reviews": [
+        { "author": "Jérôme", "date": "2026-06-05", "rating": 4, "comment": "Appartement propre et bien situé, recommandé." }
+      ]
+    },
+    {
+      "id": 24,
+      "city": "Paris",
+      "type": "Appartement",
+      "title": "Appartement calme Oberkampf cour intérieure",
+      "host": "Caroline Dupuis",
+      "price": 100,
+      "capacity": 3,
+      "rating": 4.5,
+      "transit_distance": 135,
+      "description": "Appartement parisien typique donnant sur cour intérieure calme à Oberkampf.\n\nMétros 3 et 9 à 2 min.",
+      "services": { "wifi": true, "kitchen": true, "washing_machine": true, "heating": true, "bike_storage": false },
+      "reviews": [
+        { "author": "Mélissa", "date": "2026-04-28", "rating": 5, "comment": "Parfait ! Calme, propre, hôte très accueillante." },
+        { "author": "Florian", "date": "2026-07-19", "rating": 4, "comment": "Très bon séjour, appartement conforme aux photos." }
+      ]
+    }
+  ]
+}
