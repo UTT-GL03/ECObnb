@@ -1,0 +1,26 @@
+{
+  "output": ["json"],
+  "output-name": "ecoindex-dev",
+  "courses": [
+    {
+      "name": "Pages principales dev",
+      "target": "",
+      "course": "Liste des logements ; Détail logement",
+      "is-best-pages": true,
+      "urls": [
+        "http://localhost:5173/",
+        "http://localhost:5173/3"
+      ]
+    },
+    {
+      "name": "Scénario dev",
+      "target": "",
+      "course": "Liste ; Détail",
+      "is-best-pages": false,
+      "urls": [
+        "http://localhost:5173/",
+        "http://localhost:5173/3"
+      ]
+    }
+  ]
+}
