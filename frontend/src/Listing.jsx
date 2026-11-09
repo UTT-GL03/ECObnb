@@ -5,21 +5,34 @@ import 'dayjs/locale/fr'
 
 dayjs.locale('fr')
 
+function Stars({ rating, max = 5 }) {
+  const full = Math.round(rating)
+  return (
+    <span className="stars">
+      {'★'.repeat(full)}{'☆'.repeat(max - full)}
+    </span>
+  )
+}
+
 function Services({ services }) {
   if (!services) return <p><em>Services non renseignés.</em></p>
   const labels = {
-    wifi: 'Wi-Fi',
-    kitchen: 'Cuisine',
-    washing_machine: 'Lave-linge',
-    heating: 'Chauffage',
-    bike_storage: 'Local vélos',
+    wifi:            { label: 'Wi-Fi',       icon: '📶' },
+    kitchen:         { label: 'Cuisine',      icon: '🍳' },
+    washing_machine: { label: 'Lave-linge',   icon: '🫧' },
+    heating:         { label: 'Chauffage',    icon: '🔥' },
+    bike_storage:    { label: 'Local vélos',  icon: '🚲' },
   }
   return (
-    <ul>
-      {Object.entries(labels).map(([key, label]) => (
-        <li key={key}>{services[key] ? '✅' : '❌'} {label}</li>
+    <div className="services-grid">
+      {Object.entries(labels).map(([key, { label, icon }]) => (
+        <div key={key} className={`service-item ${services[key] ? 'service-ok' : 'service-no'}`}>
+          <span>{icon}</span>
+          <span>{label}</span>
+          <span style={{ marginLeft: 'auto' }}>{services[key] ? '✓' : '✗'}</span>
+        </div>
       ))}
-    </ul>
+    </div>
   )
 }
 
@@ -28,11 +41,13 @@ function Reviews({ reviews }) {
   return (
     <div>
       {reviews.map((r, i) => (
-        <article key={i}>
+        <article key={i} className="review-card">
           <header>
             <strong>{r.author}</strong>
-            <time> · {dayjs(r.date).format('D MMM YYYY')}</time>
-            <span className="rating"> · ★ {r.rating}/5</span>
+            <Stars rating={r.rating} />
+            <time style={{ fontSize: '0.8rem', color: 'var(--pico-muted-color)' }}>
+              {dayjs(r.date).format('D MMM YYYY')}
+            </time>
           </header>
           <p>{r.comment}</p>
         </article>
@@ -48,9 +63,7 @@ function Listing() {
   useEffect(() => {
     fetch('/sample_data.json')
       .then(r => r.json())
-      .then(data => {
-        setListing(data.listings.find(l => l.id === Number(id)))
-      })
+      .then(data => setListing(data.listings.find(l => l.id === Number(id))))
   }, [id])
 
   if (listing === null) {
@@ -66,29 +79,33 @@ function Listing() {
   }
 
   const { city, type, title, host, price, capacity, rating, transit_distance, description, services, reviews } = listing
+  const transitClass = transit_distance <= 300 ? 'transit-green' : transit_distance <= 700 ? 'transit-orange' : 'transit-red'
 
   return (
     <main className="container">
-      <nav aria-label="breadcrumb">
-        <Link to="/">← Retour aux résultats</Link>
-      </nav>
+      <p className="breadcrumb"><Link to="/">← Retour aux résultats</Link></p>
 
       <article>
-        <header>
-          <span className="tag">{type}</span>
-          <span className="city"> {city}</span>
-          <h2>{title}</h2>
-          <p>
-            Hôte : <strong>{host}</strong> ·
-            Jusqu'à <strong>{capacity} personnes</strong> ·
-            <strong> {price} €/nuit</strong>
-          </p>
-          <p>
-            <span className="rating">★ {rating.toFixed(1)}/5</span>
-            {' · '}
-            <span>🚌 Transport en commun à <strong>{transit_distance} m</strong></span>
-          </p>
-        </header>
+        <div className="detail-header">
+          <div className="detail-title">
+            <span className="tag">{type}</span>
+            <h2>{title}</h2>
+            <div className="info-row">
+              <span className="info-pill">📍 {city}</span>
+              <span className="info-pill">👤 Hôte : {host}</span>
+              <span className="info-pill">🏠 {capacity} pers. max.</span>
+              <span className={`transit-badge ${transitClass}`}>🚌 {transit_distance} m</span>
+            </div>
+            <div className="info-row">
+              <Stars rating={rating} />
+              <span className="rating-num">{rating.toFixed(1)} / 5</span>
+            </div>
+          </div>
+          <div className="detail-price-box">
+            <div className="big-price">{price} €</div>
+            <small>par nuit</small>
+          </div>
+        </div>
 
         {description.split('\n\n').map((para, i) => <p key={i}>{para}</p>)}
 
@@ -98,7 +115,7 @@ function Listing() {
         </section>
 
         <section>
-          <h3>Avis des voyageurs</h3>
+          <h3>Avis des voyageurs ({reviews ? reviews.length : 0})</h3>
           <Reviews reviews={reviews} />
         </section>
       </article>

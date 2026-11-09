@@ -5,12 +5,12 @@ import Listing from './Listing'
 function App() {
   return (
     <BrowserRouter>
-      <header className="container">
-        <nav>
+      <header className="site-header">
+        <nav className="container">
           <ul>
             <li>
               <Link to="/">
-                <strong>🏠 LogiVert</strong>
+                <strong>🌿 LogiVert</strong>
               </Link>
             </li>
           </ul>
