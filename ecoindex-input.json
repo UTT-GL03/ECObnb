@@ -1,0 +1,27 @@
+{
+  "output": ["json", "statement"],
+  "output-name": "ecoindex",
+  "courses": [
+    {
+      "name": "Pages principales",
+      "target": "",
+      "course": "Liste des logements ; Détail logement",
+      "is-best-pages": true,
+      "urls": [
+        "http://localhost:4173/",
+        "http://localhost:4173/3"
+      ]
+    },
+    {
+      "name": "Rechercher et consulter un logement",
+      "target": "",
+      "course": "Liste des logements ; Détail logement ; Retour à la liste",
+      "is-best-pages": false,
+      "urls": [
+        "http://localhost:4173/",
+        "http://localhost:4173/3",
+        "http://localhost:4173/"
+      ]
+    }
+  ]
+}
