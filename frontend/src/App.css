@@ -1,0 +1,57 @@
+.listings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.tag {
+  background-color: #e8f4e8;
+  color: #2d6a2d;
+  border-radius: 12px;
+  padding: 2px 10px;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+}
+
+.city {
+  font-size: 0.9rem;
+  color: var(--pico-muted-color);
+}
+
+.meta {
+  font-size: 0.9rem;
+  margin: 0.4rem 0;
+}
+
+.rating {
+  color: #e6a817;
+  font-weight: bold;
+}
+
+.transit-badge {
+  font-size: 0.8rem;
+  border-radius: 10px;
+  padding: 2px 8px;
+}
+
+.transit-green { background: #d4edda; color: #155724; }
+.transit-orange { background: #fff3cd; color: #856404; }
+.transit-red { background: #f8d7da; color: #721c24; }
+
+article footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+article header {
+  margin-bottom: 0.5rem;
+}
+
+a { text-decoration: none; }
+
+h3 { margin: 0.3rem 0; }
+
+nav[aria-label="breadcrumb"] {
+  margin-bottom: 1rem;
+}
