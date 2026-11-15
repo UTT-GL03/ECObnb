@@ -53,6 +53,16 @@ Avec Airbnb, l'utilisateur peut désormais :
 
 Le numérique facilite donc considérablement la recherche et la réservation d'un logement.
 
+Le bilan écologique de cette numérisation n'est pas simple à établir. D'un côté, la recherche en ligne évite des déplacements physiques (agence, office de tourisme) et des supports imprimés (catalogues, brochures). De l'autre, chaque page consultée sur les services actuels a un impact de l'ordre de 2 à 3 gCO2e (cf. [mesures des services concurrents](#impact-de-lexécution-des-scénarios-auprès-de-différents-services-concurrents)), et la recherche d'un logement implique souvent la consultation de dizaines d'annonces.
+
+Retenons que, dans notre cas, le support numérique est potentiellement utile, mais que ce gain risque d'être annulé :
+
+- si le service encourage la consultation d'un nombre élevé d'annonces (défilement infini, suggestions incessantes),
+- si les pages sont beaucoup plus lourdes que la moyenne (photographies nombreuses et en haute résolution, cartes interactives, scripts tiers),
+- si le service encourage des voyages supplémentaires ou plus lointains (effet rebond, cf. plus bas).
+
+Nous serons donc particulièrement attentifs à ces trois risques dans la conception et le prototypage qui vont suivre.
+
 ## Substitution interactive entre le bailleur et le locataire
 
 Airbnb constitue une alternative aux pratiques traditionnelles de réservation d'hébergement.
@@ -154,6 +164,24 @@ Airbnb pourrait créer des partenariats avec les réseaux de transports en commu
 L'application pourrait également proposer directement les itinéraires en bus, tramway, métro ou train entre le logement et les activités choisies.
 
 Cela permettrait de faciliter les déplacements des voyageurs tout en encourageant l'utilisation des transports en commun plutôt que de la voiture.
+
+## Scénarios d'usage et impacts
+
+Nous faisons l'hypothèse que la recherche d'un logement se fait en plusieurs sessions de quelques dizaines de minutes (le soir, pendant une pause, dans les transports en commun), durant lesquelles le voyageur consulte plusieurs annonces les unes à la suite des autres.
+Pour cette raison, nous prendrons en compte dans nos scénarios la consultation de plusieurs annonces successives, avec des retours à la liste des résultats, afin d'apprécier l'effet bénéfique du cache.
+
+Par ailleurs, nous distinguerons la simple consultation des logements d'une destination et la comparaison de plusieurs logements (photos, avis, prix, services), plus exigeante en nombre de pages consultées.
+
+## Scénario : « Rechercher et consulter un logement » (scénario prioritaire)
+
+1. Le voyageur se rend sur la page d'accueil du service grâce à un favori (donc sans passer par un moteur de recherche). Si nécessaire, il donne son consentement.
+2. Il indique une destination et consulte la liste des logements proposés.
+3. Il choisit un des logements et consulte son annonce jusqu'au bout.
+4. Il revient à la liste des résultats et la consulte.
+5. Il choisit un autre logement et consulte son annonce jusqu'au bout.
+
+C'est ce scénario qui a été mesuré sur les services concurrents (cf. [`benchmark/`](./benchmark/)) puis sur notre prototype (cf. Tab.5).
+
 Scénario : « Rechercher un logement »
 L'utilisateur ouvre Airbnb.
 Il indique une destination et ses dates de séjour.
@@ -184,6 +212,54 @@ Nous pourrons notamment comparer :
 * la page de recherche ;
 * une page présentant un logement ;
 * la page de réservation.
+
+## Impact de l'exécution des scénarios auprès de différents services concurrents
+
+L'EcoIndex d'une page (de A à G) est calculé (sources : [EcoIndex](https://www.ecoindex.fr/comment-ca-marche/), [Octo](https://blog.octo.com/sous-le-capot-de-la-mesure-ecoindex), [GreenIT](https://github.com/cnumr/GreenIT-Analysis/blob/acc0334c712ba68939466c42af1514b5f448e19f/script/ecoIndex.js#L19-L44)) en fonction du positionnement de cette page parmi les pages mondiales concernant :
+
+- le nombre de requêtes lancées,
+- le poids des téléchargements,
+- le nombre d'éléments du document.
+
+Nous avons choisi de comparer l'impact du scénario « Rechercher et consulter un logement » sur trois services de réservation d'hébergements aux modèles différents : **Airbnb** (plateforme internationale entre particuliers), **Booking** (plateforme internationale, majoritairement hôtelière) et **Clévacances** (label français de locations de vacances, à titre de comparaison). Pour chaque service, les mesures portent sur la page d'accueil, une ou deux pages de résultats de recherche et deux ou trois annonces (cf. fichiers `input-file.json` de chaque service).
+
+| Service | Score (sur 100) | Classe | Détail des mesures
+| --- | --: | --: | --:
+| Airbnb | 9 | G 🟫 | […](./benchmark/AirBnb/ecoindex-environmental-statement.md)
+| Booking | 17 | F 🟪 | […](./benchmark/Booking/ecoindex-environmental-statement.md)
+| Clévacances (à titre de comparaison) | 21 | F 🟪 | […](./benchmark/Clevacances/ecoindex-environmental-statement.md)
+
+__Tab.1__ : Mesure de l'EcoIndex moyen de services de réservation d'hébergements.
+
+| Service | Page | Classe | EcoIndex | GES (gCO2e) | Requêtes | Taille de la page (ko) | Taille du DOM
+| --- | --- | --: | --: | --: | --: | --: | --:
+| Airbnb | Accueil | G | 7 | 2,85 | 210 | 5 348 | 2 540
+| Airbnb | Résultats (Paris) | G | 7 | 2,87 | 231 | 6 314 | 4 719
+| Airbnb | Annonce n°1 | F | 12 | 2,76 | 211 | 5 360 | 1 528
+| Airbnb | Annonce n°2 | G | 8 | 2,84 | 243 | 5 629 | 2 122
+| Airbnb | Annonce n°3 | G | 10 | 2,81 | 212 | 5 289 | 1 908
+| Booking | Accueil | F | 18 | 2,63 | 101 | 3 264 | 4 106
+| Booking | Résultats (Paris) | F | 11 | 2,79 | 161 | 4 097 | 4 924
+| Booking | Annonce n°1 | G | 6 | 2,87 | 282 | 4 485 | 3 298
+| Booking | Annonce n°2 | E | 29 | 2,43 | 89 | 768 | 3 487
+| Booking | Résultats (Nice) | F | 23 | 2,53 | 93 | 1 721 | 5 015
+| Clévacances | Accueil | F | 12 | 2,75 | 148 | 6 124 | 1 969
+| Clévacances | Résultats (Ardèche) | G | 10 | 2,80 | 199 | 3 187 | 5 094
+| Clévacances | Annonce n°1 | E | 35 | 2,29 | 67 | 1 012 | 1 668
+| Clévacances | Annonce n°2 | E | 38 | 2,24 | 58 | 586 | 2 027
+| Clévacances | Résultats (Gard) | F | 11 | 2,78 | 173 | 3 214 | 5 130
+
+__Tab.2__ : Détail des mesures par page (mesures réalisées le 5 octobre 2026 avec `lighthouse-plugin-ecoindex`).
+
+Les mesures de l'impact moyen de ces services (cf. Tab.1) révèlent des classes EcoIndex très faibles pour tous (F ou G), Airbnb obtenant la plus mauvaise note.
+
+Dans le détail (cf. Tab.2), les pages les plus mal classées sont celles qui incluent :
+
+- un très grand nombre de requêtes (plus de 200 par page chez Airbnb, jusqu'à 282 pour une annonce Booking),
+- un poids de page très élevé (plus de 5 Mo pour chaque page d'Airbnb), dû notamment aux nombreuses photographies et aux scripts chargés,
+- un DOM très volumineux (environ 5 000 éléments) sur les pages de résultats de recherche, qui affichent de nombreuses annonces, photos et cartes à la fois.
+
+À l'inverse, le classement un peu meilleur (E) de certaines annonces de Clévacances et de Booking (moins de 90 requêtes et moins de 1 Mo) montre qu'il existe une marge de progression significative, à condition d'adopter des pratiques d'écoconception : limiter le nombre d'annonces et de photographies affichées, charger les informations secondaires (services, avis) uniquement à la demande, et réduire le recours aux services tiers.
 
 ## Modèle économique et rentabilité
 
