@@ -2,9 +2,9 @@
 	[
 		{
 			"url": "http://localhost:5173/",
-			"score": "0.85",
+			"score": "0.86",
 			"detail": {
-				"performance": 0.59,
+				"performance": 0.62,
 				"accessibility": 1,
 				"best-practices": 1,
 				"seo": 0.82,
@@ -32,7 +32,7 @@
 					"displayValue": "350 DOM elements"
 				},
 				"eco-index-size": {
-					"score": 5285661,
+					"score": 5285597,
 					"displayValue": "5286 KiB (transfered)"
 				},
 				"eco-index-requests": {
@@ -73,7 +73,7 @@
 					"displayValue": "63 DOM elements"
 				},
 				"eco-index-size": {
-					"score": 2753,
+					"score": 2731,
 					"displayValue": "3 KiB (transfered)"
 				},
 				"eco-index-requests": {
@@ -116,7 +116,7 @@
 					"displayValue": "350 DOM elements"
 				},
 				"eco-index-size": {
-					"score": 5285661,
+					"score": 5285597,
 					"displayValue": "5286 KiB (transfered)"
 				},
 				"eco-index-requests": {
@@ -157,7 +157,7 @@
 					"displayValue": "63 DOM elements"
 				},
 				"eco-index-size": {
-					"score": 2753,
+					"score": 2731,
 					"displayValue": "3 KiB (transfered)"
 				},
 				"eco-index-requests": {

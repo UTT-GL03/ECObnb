@@ -1,6 +1,6 @@
 # Déclaration environnementale de ce site web
 
-Mesure effectuée le Mon Nov 09 2026.
+Mesure effectuée le Sun Nov 15 2026.
 
 ## Niveau d'écoconception du site web
 ![Note A](https://raw.githubusercontent.com/cnumr/lighthouse-plugin-ecoindex/main/assets/Note-A.webp)
@@ -20,7 +20,7 @@ Nous utilisons le référentiel [EcoIndex](https://www.ecoindex.fr/) proposé pa
 3. Consommation d'eau (exprimée en litres) et émission de GES (kilos CO2e) liée au chargement d'une page web pour 1 utilisateur, et rapportée à 1 000 utilisateurs.
 4. Consommation d'eau (exprimée en litres) et émission de GES (kilos CO2e) liée à l'exécution d'un parcours pour 1 utilisateur, et rapportée à 1 000 utilisateurs.
 
-L'analyse indiquée a été effectuée le Mon Nov 09 2026, elle est susceptible d'évoluer : la quantification des impacts environnementaux présentée ci-dessous est une photographie réalisée à un instant T.
+L'analyse indiquée a été effectuée le Sun Nov 15 2026, elle est susceptible d'évoluer : la quantification des impacts environnementaux présentée ci-dessous est une photographie réalisée à un instant T.
 
 ## Evaluation de l'impact des 5 pages les plus visitées du site
 
@@ -28,7 +28,7 @@ L'analyse indiquée a été effectuée le Mon Nov 09 2026, elle est susceptible 
 
 |Grade|Ecoindex|Eau (cl)|GES (gCO2e)|Nb de requêtes|Taille de la page (Ko)|Taille du DOM|
 |---|---|---|---|---|---|---|
-|A|82/100|20.40|1.36|4|103.892|349|
+|A|82/100|20.40|1.36|4|103.885|349|
 
 
 * Consommation d'eau rapportée à 1 000 utilisateurs (en litres) : 20.40 (soit 2 packs d'eau minérale).
@@ -38,7 +38,7 @@ L'analyse indiquée a été effectuée le Mon Nov 09 2026, elle est susceptible 
 
 |Grade|Ecoindex|Eau (cl)|GES (gCO2e)|Nb de requêtes|Taille de la page (Ko)|Taille du DOM|
 |---|---|---|---|---|---|---|
-|A|94/100|16.90|1.13|4|1.197|62|
+|A|94/100|16.90|1.13|4|1.191|62|
 
 
 * Consommation d'eau rapportée à 1 000 utilisateurs (en litres) : 16.90 (soit 2 packs d'eau minérale).
@@ -52,9 +52,9 @@ L'analyse indiquée a été effectuée le Mon Nov 09 2026, elle est susceptible 
 
 |Page|Grade|Ecoindex|Eau (cl)|GES (gCO2e)|Nb de requêtes|Taille de la course (Ko)|Taille du DOM|
 |---|---|---|---|---|---|---|---|
-|http://localhost:4173/|A|82/100|20.40|1.36|4|103.892|349|
-|http://localhost:4173/3|A|94/100|16.90|1.13|4|1.197|62|
-|http://localhost:4173/7|A|94/100|16.80|1.12|4|1.197|57|
+|http://localhost:4173/|A|82/100|20.40|1.36|4|103.885|349|
+|http://localhost:4173/3|A|94/100|16.90|1.13|4|1.191|62|
+|http://localhost:4173/7|A|94/100|16.80|1.12|4|1.191|57|
 
 * Consommation d'eau rapportée à 1 000 utilisateurs (en litres) : 18.03 (soit 2 packs d'eau minérale).
 * Émission de GES rapportée à 1 000 utilisateurs (kilos CO2e) : 1.20 (soit un trajet de 6 kms en voiture à énergie thermique).

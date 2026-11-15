@@ -1,6 +1,6 @@
 {
 	"version_api": "1.0.0",
-	"date": "2026-11-09T14:52:07.632Z",
+	"date": "2026-11-15T14:11:27.184Z",
 	"best_pages": {
 		"course-name": "Pages principales",
 		"course-target": "not required",
@@ -23,7 +23,7 @@
 				"eco-index-water": "20.40",
 				"eco-index-water-equivalent": 2,
 				"eco-index-nodes": 349,
-				"eco-index-size": 103892,
+				"eco-index-size": 103885,
 				"eco-index-requests": 4
 			},
 			{
@@ -35,7 +35,7 @@
 				"eco-index-water": "16.90",
 				"eco-index-water-equivalent": 2,
 				"eco-index-nodes": 62,
-				"eco-index-size": 1197,
+				"eco-index-size": 1191,
 				"eco-index-requests": 4
 			}
 		]
@@ -63,7 +63,7 @@
 					"eco-index-water": "20.40",
 					"eco-index-water-equivalent": 2,
 					"eco-index-nodes": 349,
-					"eco-index-size": 103892,
+					"eco-index-size": 103885,
 					"eco-index-requests": 4
 				},
 				{
@@ -75,7 +75,7 @@
 					"eco-index-water": "16.90",
 					"eco-index-water-equivalent": 2,
 					"eco-index-nodes": 62,
-					"eco-index-size": 1197,
+					"eco-index-size": 1191,
 					"eco-index-requests": 4
 				},
 				{
@@ -87,7 +87,7 @@
 					"eco-index-water": "16.80",
 					"eco-index-water-equivalent": 2,
 					"eco-index-nodes": 57,
-					"eco-index-size": 1197,
+					"eco-index-size": 1191,
 					"eco-index-requests": 4
 				}
 			]

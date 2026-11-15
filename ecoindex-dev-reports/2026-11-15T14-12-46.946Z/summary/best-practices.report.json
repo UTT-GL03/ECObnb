@@ -1,0 +1,1218 @@
+{
+	"courses": [
+		{
+			"report": "pages-principales-dev.report.json",
+			"pages": [
+				{
+					"url": "http://localhost:5173/",
+					"rweb": {
+						"title": "Bonnes pratiques RWEB",
+						"bestPractices": [
+							{
+								"id": "rweb-no-animations",
+								"title": "RWEB_0009 - Éléments animés détectés",
+								"description": "Évitez les animations et transitions pour réduire l'utilisation du CPU et la consommation de batterie. [Voir RWEB_0009](https://rweb.greenit.fr/fr/fiches/RWEB_0009-eviter-les-animations-javascript-css)",
+								"score": 0,
+								"displayValue": "50 élément(s) animé(s) trouvé(s)",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-no-carousel",
+								"title": "RWEB_0010 - Éviter les carrousels",
+								"description": "Évitez d'utiliser des bibliothèques de carrousels/sliders quand c'est possible. [Voir RWEB_0010](https://rweb.greenit.fr/fr/fiches/RWEB_0010-limiter-le-recours-aux-carrousels)",
+								"score": 1,
+								"displayValue": "Aucune bibliothèque de carrousel détectée",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-title-meta",
+								"title": "RWEB_0011 - Titre ou meta description manquant",
+								"description": "Assurez-vous que la page possède un titre et une meta description non vides. [Voir RWEB_0011](https://rweb.greenit.fr/fr/fiches/RWEB_0011-avoir-un-titre-de-page-et-une-metadescription-pertinents-avec-le-contenu-de-la-page)",
+								"score": 0,
+								"displayValue": "Titre ou meta description manquant",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-print-css",
+								"title": "RWEB_0031 - Aucun CSS d'impression implémenté.",
+								"description": "Un CSS d'impression doit être mis en place pour masquer les éléments inutiles lors de l'impression. [Voir RWEB_0031](https://rweb.greenit.fr/fr/fiches/RWEB_0031-fournir-une-css-print)",
+								"score": 0,
+								"displayValue": "Nombre de CSS d'impression : 0",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-limit-fonts",
+								"title": "RWEB_0032 - Limiter les familles de polices (≤ 2)",
+								"description": "Réduisez le nombre de familles de polices externes chargées. [Voir RWEB_0032](https://rweb.greenit.fr/fr/fiches/RWEB_0032-favoriser-les-polices-standards)",
+								"score": 1,
+								"displayValue": "0 famille de police externe",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-no-embedded-docs",
+								"title": "RWEB_0033 - Pas de documents embarqués",
+								"description": "Évitez d'intégrer des documents (PDF, Word, etc.) directement dans le HTML. Utilisez des liens à la place. [Voir RWEB_0033](https://rweb.greenit.fr/fr/fiches/RWEB_0033-ne-pas-afficher-les-documents-a-l-interieur-des-pages)",
+								"score": 1,
+								"displayValue": "Aucun document embarqué détecté",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-limit-css-files",
+								"title": "RWEB_0035 - Limiter les feuilles de style CSS (≤ 7)",
+								"description": "Limitez le nombre de fichiers CSS à 7 ou moins pour réduire les requêtes HTTP. [Voir RWEB_0035](https://rweb.greenit.fr/fr/fiches/RWEB_0035-limiter-le-nombre-de-css)",
+								"score": 1,
+								"displayValue": "0 feuille(s) de style CSS",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-css-splitting",
+								"title": "RWEB_0036 - Séparer le CSS par contexte média",
+								"description": "Découpez les gros fichiers CSS par type de média (impression, mobile…) pour que seuls les styles pertinents soient analysés. [Voir RWEB_0036](https://rweb.greenit.fr/fr/fiches/RWEB_0036-decouper-les-css)",
+								"score": 1,
+								"displayValue": "Tous les grands fichiers CSS sont ciblés par type de média",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-prefer-css",
+								"title": "RWEB_0037 - Préférer CSS aux images pour les éléments d'interface",
+								"description": "Remplacez les icônes bitmap ou SVG dans les boutons et liens par des formes CSS ou des polices d'icônes pour réduire les requêtes HTTP. [Voir RWEB_0037](https://rweb.greenit.fr/fr/fiches/RWEB_0037-preferer-les-css-aux-images)",
+								"score": 1,
+								"displayValue": "Aucune image icône dans les boutons/liens détectée",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-no-bitmap-ui",
+								"title": "RWEB_0038 - Éviter les images bitmap pour les éléments d'interface",
+								"description": "Remplacez les images bitmap (PNG/JPG/WebP) dans les en-têtes, navigations, pieds de page et boutons par du SVG ou du CSS. [Voir RWEB_0038](https://rweb.greenit.fr/fr/fiches/RWEB_0038-eviter-d-utiliser-des-images-matricielles-pour-l-interface)",
+								"score": 1,
+								"displayValue": "Aucune image bitmap dans des conteneurs d'interface",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-no-inline-assets",
+								"title": "RWEB_0042 - Ressources inline détectées",
+								"description": "Minimisez l'utilisation de scripts et styles inline. [Voir RWEB_0042](https://rweb.greenit.fr/fr/fiches/RWEB_0042-externaliser-les-css-et-javascript)",
+								"score": 0,
+								"displayValue": "3 ressource(s) inline trouvée(s)",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-lazy-loading",
+								"title": "RWEB_0051 - Utiliser le chargement différé pour les images",
+								"description": "Ajoutez loading=\"lazy\" aux images sous la ligne de flottaison pour différer leur téléchargement. [Voir RWEB_0051](https://rweb.greenit.fr/fr/fiches/RWEB_0051-utiliser-le-chargement-paresseux)",
+								"score": 1,
+								"displayValue": "Toutes les images utilisent le chargement différé",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-no-canvas",
+								"title": "RWEB_0055 - Éviter les éléments canvas",
+								"description": "Minimisez l'utilisation des éléments canvas. [Voir RWEB_0055](https://rweb.greenit.fr/fr/fiches/RWEB_0055-limiter-le-recours-aux-canvas)",
+								"score": 1,
+								"displayValue": "Aucun élément canvas",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-no-social-sdk",
+								"title": "RWEB_0059 - Pas de boutons officiels de réseaux sociaux",
+								"description": "Remplacez les boutons officiels des réseaux sociaux par des liens statiques pour réduire les requêtes tierces. [Voir RWEB_0059](https://rweb.greenit.fr/fr/fiches/RWEB_0059-remplacer-les-boutons-officiels-de-partage-des-reseaux-sociaux)",
+								"score": 1,
+								"displayValue": "0 requête(s) SDK de réseau social détectée(s)",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-service-worker",
+								"title": "RWEB_0060 - Aucun Service Worker actif détecté",
+								"description": "Un Service Worker améliore la mise en cache et réduit les requêtes réseau. [Voir RWEB_0060](https://rweb.greenit.fr/fr/fiches/RWEB_0060-economiser-de-la-bande-passante-grace-a-un-serviceworker)",
+								"score": 0,
+								"displayValue": "Aucun Service Worker",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-cache-control",
+								"title": "RWEB_0075 - Utiliser les en-têtes Cache-Control",
+								"description": "Définissez des en-têtes Cache-Control sur les ressources HTML, CSS, JS et les polices pour réduire les téléchargements répétés. [Voir RWEB_0075](https://rweb.greenit.fr/fr/fiches/RWEB_0075-ajouter-des-entetes-expires-ou-cache-control)",
+								"score": 1,
+								"displayValue": "Toutes les ressources ont un Cache-Control",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-http-compression",
+								"title": "RWEB_0076 - Ressources texte non compressées",
+								"description": "Activez la compression gzip/brotli pour les ressources HTML, CSS et JS. [Voir RWEB_0076](https://rweb.greenit.fr/fr/fiches/RWEB_0076-compresser-les-fichiers-css-javascript-html-et-svg)",
+								"score": 0,
+								"displayValue": "0/19 ressources texte compressées (0%)",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-minification",
+								"title": "RWEB_0077 - Minifier les CSS et JS inline",
+								"description": "Minifiez les blocs de style et de script inline pour réduire le poids de la page. [Voir RWEB_0077](https://rweb.greenit.fr/fr/fiches/RWEB_0077-minifier-les-fichiers-css-javascript-html-et-svg)",
+								"score": 1,
+								"displayValue": "Toutes les ressources inline semblent minifiées",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-combine-assets",
+								"title": "RWEB_0078 - Trop de fichiers CSS/JS séparés",
+								"description": "Concaténez les fichiers CSS et JS pour réduire les requêtes HTTP. [Voir RWEB_0078](https://rweb.greenit.fr/fr/fiches/RWEB_0078-combiner-les-fichiers-css-et-javascript)",
+								"score": 0,
+								"displayValue": "0 CSS + 18 JS fichiers",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-no-cookie-on-static",
+								"title": "RWEB_0081 - Pas de cookies sur les ressources statiques",
+								"description": "Évitez d'envoyer des cookies avec les ressources statiques (images, CSS, JS, polices). [Voir RWEB_0081](https://rweb.greenit.fr/fr/fiches/RWEB_0081-heberger-les-ressources-cssjs-sur-un-domaine-sans-cookie)",
+								"score": 1,
+								"displayValue": "Aucune ressource statique avec en-tête Cookie",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-limit-domains",
+								"title": "RWEB_0082 - Limiter les domaines de ressources (≤ 5)",
+								"description": "Réduisez le nombre de domaines uniques servant les ressources de la page. [Voir RWEB_0082](https://rweb.greenit.fr/fr/fiches/RWEB_0082-limiter-le-nombre-de-domaines-servant-les-ressources)",
+								"score": 1,
+								"displayValue": "1 domaine(s) unique(s)",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-uses-http2",
+								"title": "RWEB_0083 - Ressources servies en HTTP/1",
+								"description": "Utilisez HTTP/2 pour bénéficier du multiplexage et de la compression des en-têtes. [Voir RWEB_0083](https://rweb.greenit.fr/fr/fiches/RWEB_0083-privilegier-http2-a-http1)",
+								"score": 0,
+								"displayValue": "21 ressource(s) en HTTP/1",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-hsts",
+								"title": "RWEB_0084 - En-tête HSTS manquant",
+								"description": "Activez l'en-tête HSTS (HTTP Strict-Transport-Security) pour imposer HTTPS. [Voir RWEB_0084](https://rweb.greenit.fr/fr/fiches/RWEB_0084-favoriser-hsts-preload-list-aux-redirections-301)",
+								"score": 0,
+								"displayValue": "En-tête HSTS absent",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-no-gif",
+								"title": "RWEB_0099 - Éviter l'utilisation de GIFs",
+								"description": "Évitez d'utiliser des GIFs pour les animations ou images ; utilisez des formats modernes à la place. [Voir RWEB_0099](https://rweb.greenit.fr/fr/fiches/RWEB_0099-limiter-l-utilisation-des-gifs-animes)",
+								"score": 1,
+								"displayValue": "Aucun GIF détecté",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-optimize-svg",
+								"title": "RWEB_0100 - Optimiser les fichiers SVG",
+								"description": "Les fichiers SVG de plus de 2048 octets contiennent probablement des métadonnées ou commentaires qui peuvent être supprimés. [Voir RWEB_0100](https://rweb.greenit.fr/fr/fiches/RWEB_0100-optimiser-les-images-vectorielles)",
+								"score": 1,
+								"displayValue": "Tous les fichiers SVG semblent optimisés",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-no-autoplay",
+								"title": "RWEB_0106 - Pas de lecture automatique vidéo/audio",
+								"description": "Évitez la lecture automatique sur les éléments vidéo et audio. [Voir RWEB_0106](https://rweb.greenit.fr/fr/fiches/RWEB_0106-eviter-la-lecture-et-le-chargement-automatique-des-videos-et-des-sons)",
+								"score": 1,
+								"displayValue": "0 élément(s) avec lecture automatique",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-limit-analytics",
+								"title": "RWEB_0111 - Limiter les outils analytics (≤ 1)",
+								"description": "Limitez les outils d'analytics à un par page. [Voir RWEB_0111](https://rweb.greenit.fr/fr/fiches/RWEB_0111-limiter-les-outils-d-analytics-et-les-donnees-collectees)",
+								"score": 1,
+								"displayValue": "0 outil(s) analytics détecté(s)",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-no-redirects",
+								"title": "RWEB_0112 - Éviter les redirections HTTP (≤ 1)",
+								"description": "Réduisez les redirections HTTP pour éviter des allers-retours inutiles. [Voir RWEB_0112](https://rweb.greenit.fr/fr/fiches/RWEB_0112-eviter-les-redirections)",
+								"score": 1,
+								"displayValue": "0 redirection(s)",
+								"status": "OK"
+							}
+						]
+					},
+					"bp": {
+						"title": "Bonnes pratiques generiques d'ecoconception",
+						"bestPractices": [
+							{
+								"id": "bp-badly-sized-images",
+								"title": "Ne pas redimensionner les images dans le navigateur",
+								"description": "Ne redimensionnez pas les images via les attributs HTML height et width. Cela envoie les images dans leur taille originale, gaspillant bande passante et puissance de calcul. Redimensionnez les images avec un logiciel tel que Photoshop plutôt qu'en HTML.",
+								"score": 1,
+								"displayValue": "Trouvé 0 image(s) redimensionnée(s)",
+								"status": "OK"
+							},
+							{
+								"id": "bp-cookie-size",
+								"title": "Taille des cookies ≤ 512 octets",
+								"description": "Maintenez les en-têtes de requête Cookie sous 512 octets pour réduire la surcharge HTTP.",
+								"score": 1,
+								"displayValue": "Aucun en-tête Cookie ne dépasse 512 octets",
+								"status": "OK"
+							},
+							{
+								"id": "bp-no-http-errors",
+								"title": "Éviter les erreurs de requêtes HTTP (4xx/5xx)",
+								"description": "Corrigez les ressources cassées (404, 500…) pour éviter une charge réseau inutile et améliorer l'expérience utilisateur.",
+								"score": 1,
+								"displayValue": "Aucune erreur HTTP",
+								"status": "OK"
+							},
+							{
+								"id": "bp-no-document-write",
+								"title": "Éviter l'API d'écriture DOM dans les scripts inline",
+								"description": "L'utilisation de l'API DOM d'écriture dépréciée bloque l'analyse HTML et force un re-parsing complet. Remplacez-la par des méthodes modernes (ex: element.insertAdjacentHTML ou appendChild).",
+								"score": 1,
+								"displayValue": "Aucun appel à l'API d'écriture DOM détecté",
+								"status": "OK"
+							},
+							{
+								"id": "bp-no-hidden-images",
+								"title": "Éviter de télécharger des images non affichées",
+								"description": "Les images téléchargées mais masquées gaspillent de la bande passante. Utilisez le chargement différé ou supprimez-les.",
+								"score": 1,
+								"displayValue": "Aucune image masquée téléchargée",
+								"status": "OK"
+							},
+							{
+								"id": "bp-no-js-errors",
+								"title": "Aucune erreur JavaScript à l'exécution dans la console",
+								"description": "Corrigez les erreurs JavaScript détectées à l'exécution. Il s'agit d'appels à console.error() enregistrés pendant le chargement de la page, indiquant des fonctionnalités cassées. Contrairement à l'analyse statique (RWEB_0043), cette vérification ne couvre pas les problèmes de style de code ou de syntaxe.",
+								"score": 1,
+								"displayValue": "Aucune erreur JavaScript à l'exécution",
+								"status": "OK"
+							},
+							{
+								"id": "bp-no-plugins",
+								"title": "Ne pas utiliser de plugins navigateur (Flash, Silverlight, Java)",
+								"description": "Supprimez les éléments Flash, Silverlight et Java applet — ces plugins sont obsolètes, non sécurisés et non supportés.",
+								"score": 1,
+								"displayValue": "Aucun plugin navigateur détecté",
+								"status": "OK"
+							},
+							{
+								"id": "bp-no-unused-code",
+								"title": "Scripts externes bloquants le rendu détectés",
+								"description": "Ajoutez async ou defer aux scripts externes pour éviter de bloquer le chemin de rendu critique. Les scripts bloquants retardent l'affichage de la page et augmentent inutilement la consommation CPU.",
+								"score": 0,
+								"displayValue": "2 script(s) externe(s) bloquant(s) le rendu",
+								"status": "KO"
+							}
+						]
+					}
+				},
+				{
+					"url": "http://localhost:5173/3",
+					"rweb": {
+						"title": "Bonnes pratiques RWEB",
+						"bestPractices": [
+							{
+								"id": "rweb-no-animations",
+								"title": "RWEB_0009 - Éléments animés détectés",
+								"description": "Évitez les animations et transitions pour réduire l'utilisation du CPU et la consommation de batterie. [Voir RWEB_0009](https://rweb.greenit.fr/fr/fiches/RWEB_0009-eviter-les-animations-javascript-css)",
+								"score": 0,
+								"displayValue": "2 élément(s) animé(s) trouvé(s)",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-no-carousel",
+								"title": "RWEB_0010 - Éviter les carrousels",
+								"description": "Évitez d'utiliser des bibliothèques de carrousels/sliders quand c'est possible. [Voir RWEB_0010](https://rweb.greenit.fr/fr/fiches/RWEB_0010-limiter-le-recours-aux-carrousels)",
+								"score": 1,
+								"displayValue": "Aucune bibliothèque de carrousel détectée",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-title-meta",
+								"title": "RWEB_0011 - Titre ou meta description manquant",
+								"description": "Assurez-vous que la page possède un titre et une meta description non vides. [Voir RWEB_0011](https://rweb.greenit.fr/fr/fiches/RWEB_0011-avoir-un-titre-de-page-et-une-metadescription-pertinents-avec-le-contenu-de-la-page)",
+								"score": 0,
+								"displayValue": "Titre ou meta description manquant",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-print-css",
+								"title": "RWEB_0031 - Aucun CSS d'impression implémenté.",
+								"description": "Un CSS d'impression doit être mis en place pour masquer les éléments inutiles lors de l'impression. [Voir RWEB_0031](https://rweb.greenit.fr/fr/fiches/RWEB_0031-fournir-une-css-print)",
+								"score": 0,
+								"displayValue": "Nombre de CSS d'impression : 0",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-limit-fonts",
+								"title": "RWEB_0032 - Limiter les familles de polices (≤ 2)",
+								"description": "Réduisez le nombre de familles de polices externes chargées. [Voir RWEB_0032](https://rweb.greenit.fr/fr/fiches/RWEB_0032-favoriser-les-polices-standards)",
+								"score": 1,
+								"displayValue": "0 famille de police externe",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-no-embedded-docs",
+								"title": "RWEB_0033 - Pas de documents embarqués",
+								"description": "Évitez d'intégrer des documents (PDF, Word, etc.) directement dans le HTML. Utilisez des liens à la place. [Voir RWEB_0033](https://rweb.greenit.fr/fr/fiches/RWEB_0033-ne-pas-afficher-les-documents-a-l-interieur-des-pages)",
+								"score": 1,
+								"displayValue": "Aucun document embarqué détecté",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-limit-css-files",
+								"title": "RWEB_0035 - Limiter les feuilles de style CSS (≤ 7)",
+								"description": "Limitez le nombre de fichiers CSS à 7 ou moins pour réduire les requêtes HTTP. [Voir RWEB_0035](https://rweb.greenit.fr/fr/fiches/RWEB_0035-limiter-le-nombre-de-css)",
+								"score": 1,
+								"displayValue": "0 feuille(s) de style CSS",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-css-splitting",
+								"title": "RWEB_0036 - Séparer le CSS par contexte média",
+								"description": "Découpez les gros fichiers CSS par type de média (impression, mobile…) pour que seuls les styles pertinents soient analysés. [Voir RWEB_0036](https://rweb.greenit.fr/fr/fiches/RWEB_0036-decouper-les-css)",
+								"score": 1,
+								"displayValue": "Tous les grands fichiers CSS sont ciblés par type de média",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-prefer-css",
+								"title": "RWEB_0037 - Préférer CSS aux images pour les éléments d'interface",
+								"description": "Remplacez les icônes bitmap ou SVG dans les boutons et liens par des formes CSS ou des polices d'icônes pour réduire les requêtes HTTP. [Voir RWEB_0037](https://rweb.greenit.fr/fr/fiches/RWEB_0037-preferer-les-css-aux-images)",
+								"score": 1,
+								"displayValue": "Aucune image icône dans les boutons/liens détectée",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-no-bitmap-ui",
+								"title": "RWEB_0038 - Éviter les images bitmap pour les éléments d'interface",
+								"description": "Remplacez les images bitmap (PNG/JPG/WebP) dans les en-têtes, navigations, pieds de page et boutons par du SVG ou du CSS. [Voir RWEB_0038](https://rweb.greenit.fr/fr/fiches/RWEB_0038-eviter-d-utiliser-des-images-matricielles-pour-l-interface)",
+								"score": 1,
+								"displayValue": "Aucune image bitmap dans des conteneurs d'interface",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-no-inline-assets",
+								"title": "RWEB_0042 - Ressources inline détectées",
+								"description": "Minimisez l'utilisation de scripts et styles inline. [Voir RWEB_0042](https://rweb.greenit.fr/fr/fiches/RWEB_0042-externaliser-les-css-et-javascript)",
+								"score": 0,
+								"displayValue": "3 ressource(s) inline trouvée(s)",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-lazy-loading",
+								"title": "RWEB_0051 - Utiliser le chargement différé pour les images",
+								"description": "Ajoutez loading=\"lazy\" aux images sous la ligne de flottaison pour différer leur téléchargement. [Voir RWEB_0051](https://rweb.greenit.fr/fr/fiches/RWEB_0051-utiliser-le-chargement-paresseux)",
+								"score": 1,
+								"displayValue": "Toutes les images utilisent le chargement différé",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-no-canvas",
+								"title": "RWEB_0055 - Éviter les éléments canvas",
+								"description": "Minimisez l'utilisation des éléments canvas. [Voir RWEB_0055](https://rweb.greenit.fr/fr/fiches/RWEB_0055-limiter-le-recours-aux-canvas)",
+								"score": 1,
+								"displayValue": "Aucun élément canvas",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-no-social-sdk",
+								"title": "RWEB_0059 - Pas de boutons officiels de réseaux sociaux",
+								"description": "Remplacez les boutons officiels des réseaux sociaux par des liens statiques pour réduire les requêtes tierces. [Voir RWEB_0059](https://rweb.greenit.fr/fr/fiches/RWEB_0059-remplacer-les-boutons-officiels-de-partage-des-reseaux-sociaux)",
+								"score": 1,
+								"displayValue": "0 requête(s) SDK de réseau social détectée(s)",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-service-worker",
+								"title": "RWEB_0060 - Aucun Service Worker actif détecté",
+								"description": "Un Service Worker améliore la mise en cache et réduit les requêtes réseau. [Voir RWEB_0060](https://rweb.greenit.fr/fr/fiches/RWEB_0060-economiser-de-la-bande-passante-grace-a-un-serviceworker)",
+								"score": 0,
+								"displayValue": "Aucun Service Worker",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-cache-control",
+								"title": "RWEB_0075 - Utiliser les en-têtes Cache-Control",
+								"description": "Définissez des en-têtes Cache-Control sur les ressources HTML, CSS, JS et les polices pour réduire les téléchargements répétés. [Voir RWEB_0075](https://rweb.greenit.fr/fr/fiches/RWEB_0075-ajouter-des-entetes-expires-ou-cache-control)",
+								"score": 1,
+								"displayValue": "Toutes les ressources ont un Cache-Control",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-http-compression",
+								"title": "RWEB_0076 - Ressources texte non compressées",
+								"description": "Activez la compression gzip/brotli pour les ressources HTML, CSS et JS. [Voir RWEB_0076](https://rweb.greenit.fr/fr/fiches/RWEB_0076-compresser-les-fichiers-css-javascript-html-et-svg)",
+								"score": 0,
+								"displayValue": "0/19 ressources texte compressées (0%)",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-minification",
+								"title": "RWEB_0077 - Minifier les CSS et JS inline",
+								"description": "Minifiez les blocs de style et de script inline pour réduire le poids de la page. [Voir RWEB_0077](https://rweb.greenit.fr/fr/fiches/RWEB_0077-minifier-les-fichiers-css-javascript-html-et-svg)",
+								"score": 1,
+								"displayValue": "Toutes les ressources inline semblent minifiées",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-combine-assets",
+								"title": "RWEB_0078 - Trop de fichiers CSS/JS séparés",
+								"description": "Concaténez les fichiers CSS et JS pour réduire les requêtes HTTP. [Voir RWEB_0078](https://rweb.greenit.fr/fr/fiches/RWEB_0078-combiner-les-fichiers-css-et-javascript)",
+								"score": 0,
+								"displayValue": "0 CSS + 18 JS fichiers",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-no-cookie-on-static",
+								"title": "RWEB_0081 - Pas de cookies sur les ressources statiques",
+								"description": "Évitez d'envoyer des cookies avec les ressources statiques (images, CSS, JS, polices). [Voir RWEB_0081](https://rweb.greenit.fr/fr/fiches/RWEB_0081-heberger-les-ressources-cssjs-sur-un-domaine-sans-cookie)",
+								"score": 1,
+								"displayValue": "Aucune ressource statique avec en-tête Cookie",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-limit-domains",
+								"title": "RWEB_0082 - Limiter les domaines de ressources (≤ 5)",
+								"description": "Réduisez le nombre de domaines uniques servant les ressources de la page. [Voir RWEB_0082](https://rweb.greenit.fr/fr/fiches/RWEB_0082-limiter-le-nombre-de-domaines-servant-les-ressources)",
+								"score": 1,
+								"displayValue": "1 domaine(s) unique(s)",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-uses-http2",
+								"title": "RWEB_0083 - Ressources servies en HTTP/1",
+								"description": "Utilisez HTTP/2 pour bénéficier du multiplexage et de la compression des en-têtes. [Voir RWEB_0083](https://rweb.greenit.fr/fr/fiches/RWEB_0083-privilegier-http2-a-http1)",
+								"score": 0,
+								"displayValue": "21 ressource(s) en HTTP/1",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-hsts",
+								"title": "RWEB_0084 - En-tête HSTS manquant",
+								"description": "Activez l'en-tête HSTS (HTTP Strict-Transport-Security) pour imposer HTTPS. [Voir RWEB_0084](https://rweb.greenit.fr/fr/fiches/RWEB_0084-favoriser-hsts-preload-list-aux-redirections-301)",
+								"score": 0,
+								"displayValue": "En-tête HSTS absent",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-no-gif",
+								"title": "RWEB_0099 - Éviter l'utilisation de GIFs",
+								"description": "Évitez d'utiliser des GIFs pour les animations ou images ; utilisez des formats modernes à la place. [Voir RWEB_0099](https://rweb.greenit.fr/fr/fiches/RWEB_0099-limiter-l-utilisation-des-gifs-animes)",
+								"score": 1,
+								"displayValue": "Aucun GIF détecté",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-optimize-svg",
+								"title": "RWEB_0100 - Optimiser les fichiers SVG",
+								"description": "Les fichiers SVG de plus de 2048 octets contiennent probablement des métadonnées ou commentaires qui peuvent être supprimés. [Voir RWEB_0100](https://rweb.greenit.fr/fr/fiches/RWEB_0100-optimiser-les-images-vectorielles)",
+								"score": 1,
+								"displayValue": "Tous les fichiers SVG semblent optimisés",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-no-autoplay",
+								"title": "RWEB_0106 - Pas de lecture automatique vidéo/audio",
+								"description": "Évitez la lecture automatique sur les éléments vidéo et audio. [Voir RWEB_0106](https://rweb.greenit.fr/fr/fiches/RWEB_0106-eviter-la-lecture-et-le-chargement-automatique-des-videos-et-des-sons)",
+								"score": 1,
+								"displayValue": "0 élément(s) avec lecture automatique",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-limit-analytics",
+								"title": "RWEB_0111 - Limiter les outils analytics (≤ 1)",
+								"description": "Limitez les outils d'analytics à un par page. [Voir RWEB_0111](https://rweb.greenit.fr/fr/fiches/RWEB_0111-limiter-les-outils-d-analytics-et-les-donnees-collectees)",
+								"score": 1,
+								"displayValue": "0 outil(s) analytics détecté(s)",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-no-redirects",
+								"title": "RWEB_0112 - Éviter les redirections HTTP (≤ 1)",
+								"description": "Réduisez les redirections HTTP pour éviter des allers-retours inutiles. [Voir RWEB_0112](https://rweb.greenit.fr/fr/fiches/RWEB_0112-eviter-les-redirections)",
+								"score": 1,
+								"displayValue": "0 redirection(s)",
+								"status": "OK"
+							}
+						]
+					},
+					"bp": {
+						"title": "Bonnes pratiques generiques d'ecoconception",
+						"bestPractices": [
+							{
+								"id": "bp-badly-sized-images",
+								"title": "Ne pas redimensionner les images dans le navigateur",
+								"description": "Ne redimensionnez pas les images via les attributs HTML height et width. Cela envoie les images dans leur taille originale, gaspillant bande passante et puissance de calcul. Redimensionnez les images avec un logiciel tel que Photoshop plutôt qu'en HTML.",
+								"score": 1,
+								"displayValue": "Trouvé 0 image(s) redimensionnée(s)",
+								"status": "OK"
+							},
+							{
+								"id": "bp-cookie-size",
+								"title": "Taille des cookies ≤ 512 octets",
+								"description": "Maintenez les en-têtes de requête Cookie sous 512 octets pour réduire la surcharge HTTP.",
+								"score": 1,
+								"displayValue": "Aucun en-tête Cookie ne dépasse 512 octets",
+								"status": "OK"
+							},
+							{
+								"id": "bp-no-http-errors",
+								"title": "Éviter les erreurs de requêtes HTTP (4xx/5xx)",
+								"description": "Corrigez les ressources cassées (404, 500…) pour éviter une charge réseau inutile et améliorer l'expérience utilisateur.",
+								"score": 1,
+								"displayValue": "Aucune erreur HTTP",
+								"status": "OK"
+							},
+							{
+								"id": "bp-no-document-write",
+								"title": "Éviter l'API d'écriture DOM dans les scripts inline",
+								"description": "L'utilisation de l'API DOM d'écriture dépréciée bloque l'analyse HTML et force un re-parsing complet. Remplacez-la par des méthodes modernes (ex: element.insertAdjacentHTML ou appendChild).",
+								"score": 1,
+								"displayValue": "Aucun appel à l'API d'écriture DOM détecté",
+								"status": "OK"
+							},
+							{
+								"id": "bp-no-hidden-images",
+								"title": "Éviter de télécharger des images non affichées",
+								"description": "Les images téléchargées mais masquées gaspillent de la bande passante. Utilisez le chargement différé ou supprimez-les.",
+								"score": 1,
+								"displayValue": "Aucune image masquée téléchargée",
+								"status": "OK"
+							},
+							{
+								"id": "bp-no-js-errors",
+								"title": "Aucune erreur JavaScript à l'exécution dans la console",
+								"description": "Corrigez les erreurs JavaScript détectées à l'exécution. Il s'agit d'appels à console.error() enregistrés pendant le chargement de la page, indiquant des fonctionnalités cassées. Contrairement à l'analyse statique (RWEB_0043), cette vérification ne couvre pas les problèmes de style de code ou de syntaxe.",
+								"score": 1,
+								"displayValue": "Aucune erreur JavaScript à l'exécution",
+								"status": "OK"
+							},
+							{
+								"id": "bp-no-plugins",
+								"title": "Ne pas utiliser de plugins navigateur (Flash, Silverlight, Java)",
+								"description": "Supprimez les éléments Flash, Silverlight et Java applet — ces plugins sont obsolètes, non sécurisés et non supportés.",
+								"score": 1,
+								"displayValue": "Aucun plugin navigateur détecté",
+								"status": "OK"
+							},
+							{
+								"id": "bp-no-unused-code",
+								"title": "Scripts externes bloquants le rendu détectés",
+								"description": "Ajoutez async ou defer aux scripts externes pour éviter de bloquer le chemin de rendu critique. Les scripts bloquants retardent l'affichage de la page et augmentent inutilement la consommation CPU.",
+								"score": 0,
+								"displayValue": "2 script(s) externe(s) bloquant(s) le rendu",
+								"status": "KO"
+							}
+						]
+					}
+				}
+			]
+		},
+		{
+			"report": "scenario-dev.report.json",
+			"pages": [
+				{
+					"url": "http://localhost:5173/",
+					"rweb": {
+						"title": "Bonnes pratiques RWEB",
+						"bestPractices": [
+							{
+								"id": "rweb-no-animations",
+								"title": "RWEB_0009 - Éléments animés détectés",
+								"description": "Évitez les animations et transitions pour réduire l'utilisation du CPU et la consommation de batterie. [Voir RWEB_0009](https://rweb.greenit.fr/fr/fiches/RWEB_0009-eviter-les-animations-javascript-css)",
+								"score": 0,
+								"displayValue": "50 élément(s) animé(s) trouvé(s)",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-no-carousel",
+								"title": "RWEB_0010 - Éviter les carrousels",
+								"description": "Évitez d'utiliser des bibliothèques de carrousels/sliders quand c'est possible. [Voir RWEB_0010](https://rweb.greenit.fr/fr/fiches/RWEB_0010-limiter-le-recours-aux-carrousels)",
+								"score": 1,
+								"displayValue": "Aucune bibliothèque de carrousel détectée",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-title-meta",
+								"title": "RWEB_0011 - Titre ou meta description manquant",
+								"description": "Assurez-vous que la page possède un titre et une meta description non vides. [Voir RWEB_0011](https://rweb.greenit.fr/fr/fiches/RWEB_0011-avoir-un-titre-de-page-et-une-metadescription-pertinents-avec-le-contenu-de-la-page)",
+								"score": 0,
+								"displayValue": "Titre ou meta description manquant",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-print-css",
+								"title": "RWEB_0031 - Aucun CSS d'impression implémenté.",
+								"description": "Un CSS d'impression doit être mis en place pour masquer les éléments inutiles lors de l'impression. [Voir RWEB_0031](https://rweb.greenit.fr/fr/fiches/RWEB_0031-fournir-une-css-print)",
+								"score": 0,
+								"displayValue": "Nombre de CSS d'impression : 0",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-limit-fonts",
+								"title": "RWEB_0032 - Limiter les familles de polices (≤ 2)",
+								"description": "Réduisez le nombre de familles de polices externes chargées. [Voir RWEB_0032](https://rweb.greenit.fr/fr/fiches/RWEB_0032-favoriser-les-polices-standards)",
+								"score": 1,
+								"displayValue": "0 famille de police externe",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-no-embedded-docs",
+								"title": "RWEB_0033 - Pas de documents embarqués",
+								"description": "Évitez d'intégrer des documents (PDF, Word, etc.) directement dans le HTML. Utilisez des liens à la place. [Voir RWEB_0033](https://rweb.greenit.fr/fr/fiches/RWEB_0033-ne-pas-afficher-les-documents-a-l-interieur-des-pages)",
+								"score": 1,
+								"displayValue": "Aucun document embarqué détecté",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-limit-css-files",
+								"title": "RWEB_0035 - Limiter les feuilles de style CSS (≤ 7)",
+								"description": "Limitez le nombre de fichiers CSS à 7 ou moins pour réduire les requêtes HTTP. [Voir RWEB_0035](https://rweb.greenit.fr/fr/fiches/RWEB_0035-limiter-le-nombre-de-css)",
+								"score": 1,
+								"displayValue": "0 feuille(s) de style CSS",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-css-splitting",
+								"title": "RWEB_0036 - Séparer le CSS par contexte média",
+								"description": "Découpez les gros fichiers CSS par type de média (impression, mobile…) pour que seuls les styles pertinents soient analysés. [Voir RWEB_0036](https://rweb.greenit.fr/fr/fiches/RWEB_0036-decouper-les-css)",
+								"score": 1,
+								"displayValue": "Tous les grands fichiers CSS sont ciblés par type de média",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-prefer-css",
+								"title": "RWEB_0037 - Préférer CSS aux images pour les éléments d'interface",
+								"description": "Remplacez les icônes bitmap ou SVG dans les boutons et liens par des formes CSS ou des polices d'icônes pour réduire les requêtes HTTP. [Voir RWEB_0037](https://rweb.greenit.fr/fr/fiches/RWEB_0037-preferer-les-css-aux-images)",
+								"score": 1,
+								"displayValue": "Aucune image icône dans les boutons/liens détectée",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-no-bitmap-ui",
+								"title": "RWEB_0038 - Éviter les images bitmap pour les éléments d'interface",
+								"description": "Remplacez les images bitmap (PNG/JPG/WebP) dans les en-têtes, navigations, pieds de page et boutons par du SVG ou du CSS. [Voir RWEB_0038](https://rweb.greenit.fr/fr/fiches/RWEB_0038-eviter-d-utiliser-des-images-matricielles-pour-l-interface)",
+								"score": 1,
+								"displayValue": "Aucune image bitmap dans des conteneurs d'interface",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-no-inline-assets",
+								"title": "RWEB_0042 - Ressources inline détectées",
+								"description": "Minimisez l'utilisation de scripts et styles inline. [Voir RWEB_0042](https://rweb.greenit.fr/fr/fiches/RWEB_0042-externaliser-les-css-et-javascript)",
+								"score": 0,
+								"displayValue": "3 ressource(s) inline trouvée(s)",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-lazy-loading",
+								"title": "RWEB_0051 - Utiliser le chargement différé pour les images",
+								"description": "Ajoutez loading=\"lazy\" aux images sous la ligne de flottaison pour différer leur téléchargement. [Voir RWEB_0051](https://rweb.greenit.fr/fr/fiches/RWEB_0051-utiliser-le-chargement-paresseux)",
+								"score": 1,
+								"displayValue": "Toutes les images utilisent le chargement différé",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-no-canvas",
+								"title": "RWEB_0055 - Éviter les éléments canvas",
+								"description": "Minimisez l'utilisation des éléments canvas. [Voir RWEB_0055](https://rweb.greenit.fr/fr/fiches/RWEB_0055-limiter-le-recours-aux-canvas)",
+								"score": 1,
+								"displayValue": "Aucun élément canvas",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-no-social-sdk",
+								"title": "RWEB_0059 - Pas de boutons officiels de réseaux sociaux",
+								"description": "Remplacez les boutons officiels des réseaux sociaux par des liens statiques pour réduire les requêtes tierces. [Voir RWEB_0059](https://rweb.greenit.fr/fr/fiches/RWEB_0059-remplacer-les-boutons-officiels-de-partage-des-reseaux-sociaux)",
+								"score": 1,
+								"displayValue": "0 requête(s) SDK de réseau social détectée(s)",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-service-worker",
+								"title": "RWEB_0060 - Aucun Service Worker actif détecté",
+								"description": "Un Service Worker améliore la mise en cache et réduit les requêtes réseau. [Voir RWEB_0060](https://rweb.greenit.fr/fr/fiches/RWEB_0060-economiser-de-la-bande-passante-grace-a-un-serviceworker)",
+								"score": 0,
+								"displayValue": "Aucun Service Worker",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-cache-control",
+								"title": "RWEB_0075 - Utiliser les en-têtes Cache-Control",
+								"description": "Définissez des en-têtes Cache-Control sur les ressources HTML, CSS, JS et les polices pour réduire les téléchargements répétés. [Voir RWEB_0075](https://rweb.greenit.fr/fr/fiches/RWEB_0075-ajouter-des-entetes-expires-ou-cache-control)",
+								"score": 1,
+								"displayValue": "Toutes les ressources ont un Cache-Control",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-http-compression",
+								"title": "RWEB_0076 - Ressources texte non compressées",
+								"description": "Activez la compression gzip/brotli pour les ressources HTML, CSS et JS. [Voir RWEB_0076](https://rweb.greenit.fr/fr/fiches/RWEB_0076-compresser-les-fichiers-css-javascript-html-et-svg)",
+								"score": 0,
+								"displayValue": "0/19 ressources texte compressées (0%)",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-minification",
+								"title": "RWEB_0077 - Minifier les CSS et JS inline",
+								"description": "Minifiez les blocs de style et de script inline pour réduire le poids de la page. [Voir RWEB_0077](https://rweb.greenit.fr/fr/fiches/RWEB_0077-minifier-les-fichiers-css-javascript-html-et-svg)",
+								"score": 1,
+								"displayValue": "Toutes les ressources inline semblent minifiées",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-combine-assets",
+								"title": "RWEB_0078 - Trop de fichiers CSS/JS séparés",
+								"description": "Concaténez les fichiers CSS et JS pour réduire les requêtes HTTP. [Voir RWEB_0078](https://rweb.greenit.fr/fr/fiches/RWEB_0078-combiner-les-fichiers-css-et-javascript)",
+								"score": 0,
+								"displayValue": "0 CSS + 18 JS fichiers",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-no-cookie-on-static",
+								"title": "RWEB_0081 - Pas de cookies sur les ressources statiques",
+								"description": "Évitez d'envoyer des cookies avec les ressources statiques (images, CSS, JS, polices). [Voir RWEB_0081](https://rweb.greenit.fr/fr/fiches/RWEB_0081-heberger-les-ressources-cssjs-sur-un-domaine-sans-cookie)",
+								"score": 1,
+								"displayValue": "Aucune ressource statique avec en-tête Cookie",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-limit-domains",
+								"title": "RWEB_0082 - Limiter les domaines de ressources (≤ 5)",
+								"description": "Réduisez le nombre de domaines uniques servant les ressources de la page. [Voir RWEB_0082](https://rweb.greenit.fr/fr/fiches/RWEB_0082-limiter-le-nombre-de-domaines-servant-les-ressources)",
+								"score": 1,
+								"displayValue": "1 domaine(s) unique(s)",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-uses-http2",
+								"title": "RWEB_0083 - Ressources servies en HTTP/1",
+								"description": "Utilisez HTTP/2 pour bénéficier du multiplexage et de la compression des en-têtes. [Voir RWEB_0083](https://rweb.greenit.fr/fr/fiches/RWEB_0083-privilegier-http2-a-http1)",
+								"score": 0,
+								"displayValue": "21 ressource(s) en HTTP/1",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-hsts",
+								"title": "RWEB_0084 - En-tête HSTS manquant",
+								"description": "Activez l'en-tête HSTS (HTTP Strict-Transport-Security) pour imposer HTTPS. [Voir RWEB_0084](https://rweb.greenit.fr/fr/fiches/RWEB_0084-favoriser-hsts-preload-list-aux-redirections-301)",
+								"score": 0,
+								"displayValue": "En-tête HSTS absent",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-no-gif",
+								"title": "RWEB_0099 - Éviter l'utilisation de GIFs",
+								"description": "Évitez d'utiliser des GIFs pour les animations ou images ; utilisez des formats modernes à la place. [Voir RWEB_0099](https://rweb.greenit.fr/fr/fiches/RWEB_0099-limiter-l-utilisation-des-gifs-animes)",
+								"score": 1,
+								"displayValue": "Aucun GIF détecté",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-optimize-svg",
+								"title": "RWEB_0100 - Optimiser les fichiers SVG",
+								"description": "Les fichiers SVG de plus de 2048 octets contiennent probablement des métadonnées ou commentaires qui peuvent être supprimés. [Voir RWEB_0100](https://rweb.greenit.fr/fr/fiches/RWEB_0100-optimiser-les-images-vectorielles)",
+								"score": 1,
+								"displayValue": "Tous les fichiers SVG semblent optimisés",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-no-autoplay",
+								"title": "RWEB_0106 - Pas de lecture automatique vidéo/audio",
+								"description": "Évitez la lecture automatique sur les éléments vidéo et audio. [Voir RWEB_0106](https://rweb.greenit.fr/fr/fiches/RWEB_0106-eviter-la-lecture-et-le-chargement-automatique-des-videos-et-des-sons)",
+								"score": 1,
+								"displayValue": "0 élément(s) avec lecture automatique",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-limit-analytics",
+								"title": "RWEB_0111 - Limiter les outils analytics (≤ 1)",
+								"description": "Limitez les outils d'analytics à un par page. [Voir RWEB_0111](https://rweb.greenit.fr/fr/fiches/RWEB_0111-limiter-les-outils-d-analytics-et-les-donnees-collectees)",
+								"score": 1,
+								"displayValue": "0 outil(s) analytics détecté(s)",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-no-redirects",
+								"title": "RWEB_0112 - Éviter les redirections HTTP (≤ 1)",
+								"description": "Réduisez les redirections HTTP pour éviter des allers-retours inutiles. [Voir RWEB_0112](https://rweb.greenit.fr/fr/fiches/RWEB_0112-eviter-les-redirections)",
+								"score": 1,
+								"displayValue": "0 redirection(s)",
+								"status": "OK"
+							}
+						]
+					},
+					"bp": {
+						"title": "Bonnes pratiques generiques d'ecoconception",
+						"bestPractices": [
+							{
+								"id": "bp-badly-sized-images",
+								"title": "Ne pas redimensionner les images dans le navigateur",
+								"description": "Ne redimensionnez pas les images via les attributs HTML height et width. Cela envoie les images dans leur taille originale, gaspillant bande passante et puissance de calcul. Redimensionnez les images avec un logiciel tel que Photoshop plutôt qu'en HTML.",
+								"score": 1,
+								"displayValue": "Trouvé 0 image(s) redimensionnée(s)",
+								"status": "OK"
+							},
+							{
+								"id": "bp-cookie-size",
+								"title": "Taille des cookies ≤ 512 octets",
+								"description": "Maintenez les en-têtes de requête Cookie sous 512 octets pour réduire la surcharge HTTP.",
+								"score": 1,
+								"displayValue": "Aucun en-tête Cookie ne dépasse 512 octets",
+								"status": "OK"
+							},
+							{
+								"id": "bp-no-http-errors",
+								"title": "Éviter les erreurs de requêtes HTTP (4xx/5xx)",
+								"description": "Corrigez les ressources cassées (404, 500…) pour éviter une charge réseau inutile et améliorer l'expérience utilisateur.",
+								"score": 1,
+								"displayValue": "Aucune erreur HTTP",
+								"status": "OK"
+							},
+							{
+								"id": "bp-no-document-write",
+								"title": "Éviter l'API d'écriture DOM dans les scripts inline",
+								"description": "L'utilisation de l'API DOM d'écriture dépréciée bloque l'analyse HTML et force un re-parsing complet. Remplacez-la par des méthodes modernes (ex: element.insertAdjacentHTML ou appendChild).",
+								"score": 1,
+								"displayValue": "Aucun appel à l'API d'écriture DOM détecté",
+								"status": "OK"
+							},
+							{
+								"id": "bp-no-hidden-images",
+								"title": "Éviter de télécharger des images non affichées",
+								"description": "Les images téléchargées mais masquées gaspillent de la bande passante. Utilisez le chargement différé ou supprimez-les.",
+								"score": 1,
+								"displayValue": "Aucune image masquée téléchargée",
+								"status": "OK"
+							},
+							{
+								"id": "bp-no-js-errors",
+								"title": "Aucune erreur JavaScript à l'exécution dans la console",
+								"description": "Corrigez les erreurs JavaScript détectées à l'exécution. Il s'agit d'appels à console.error() enregistrés pendant le chargement de la page, indiquant des fonctionnalités cassées. Contrairement à l'analyse statique (RWEB_0043), cette vérification ne couvre pas les problèmes de style de code ou de syntaxe.",
+								"score": 1,
+								"displayValue": "Aucune erreur JavaScript à l'exécution",
+								"status": "OK"
+							},
+							{
+								"id": "bp-no-plugins",
+								"title": "Ne pas utiliser de plugins navigateur (Flash, Silverlight, Java)",
+								"description": "Supprimez les éléments Flash, Silverlight et Java applet — ces plugins sont obsolètes, non sécurisés et non supportés.",
+								"score": 1,
+								"displayValue": "Aucun plugin navigateur détecté",
+								"status": "OK"
+							},
+							{
+								"id": "bp-no-unused-code",
+								"title": "Scripts externes bloquants le rendu détectés",
+								"description": "Ajoutez async ou defer aux scripts externes pour éviter de bloquer le chemin de rendu critique. Les scripts bloquants retardent l'affichage de la page et augmentent inutilement la consommation CPU.",
+								"score": 0,
+								"displayValue": "2 script(s) externe(s) bloquant(s) le rendu",
+								"status": "KO"
+							}
+						]
+					}
+				},
+				{
+					"url": "http://localhost:5173/3",
+					"rweb": {
+						"title": "Bonnes pratiques RWEB",
+						"bestPractices": [
+							{
+								"id": "rweb-no-animations",
+								"title": "RWEB_0009 - Éléments animés détectés",
+								"description": "Évitez les animations et transitions pour réduire l'utilisation du CPU et la consommation de batterie. [Voir RWEB_0009](https://rweb.greenit.fr/fr/fiches/RWEB_0009-eviter-les-animations-javascript-css)",
+								"score": 0,
+								"displayValue": "2 élément(s) animé(s) trouvé(s)",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-no-carousel",
+								"title": "RWEB_0010 - Éviter les carrousels",
+								"description": "Évitez d'utiliser des bibliothèques de carrousels/sliders quand c'est possible. [Voir RWEB_0010](https://rweb.greenit.fr/fr/fiches/RWEB_0010-limiter-le-recours-aux-carrousels)",
+								"score": 1,
+								"displayValue": "Aucune bibliothèque de carrousel détectée",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-title-meta",
+								"title": "RWEB_0011 - Titre ou meta description manquant",
+								"description": "Assurez-vous que la page possède un titre et une meta description non vides. [Voir RWEB_0011](https://rweb.greenit.fr/fr/fiches/RWEB_0011-avoir-un-titre-de-page-et-une-metadescription-pertinents-avec-le-contenu-de-la-page)",
+								"score": 0,
+								"displayValue": "Titre ou meta description manquant",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-print-css",
+								"title": "RWEB_0031 - Aucun CSS d'impression implémenté.",
+								"description": "Un CSS d'impression doit être mis en place pour masquer les éléments inutiles lors de l'impression. [Voir RWEB_0031](https://rweb.greenit.fr/fr/fiches/RWEB_0031-fournir-une-css-print)",
+								"score": 0,
+								"displayValue": "Nombre de CSS d'impression : 0",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-limit-fonts",
+								"title": "RWEB_0032 - Limiter les familles de polices (≤ 2)",
+								"description": "Réduisez le nombre de familles de polices externes chargées. [Voir RWEB_0032](https://rweb.greenit.fr/fr/fiches/RWEB_0032-favoriser-les-polices-standards)",
+								"score": 1,
+								"displayValue": "0 famille de police externe",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-no-embedded-docs",
+								"title": "RWEB_0033 - Pas de documents embarqués",
+								"description": "Évitez d'intégrer des documents (PDF, Word, etc.) directement dans le HTML. Utilisez des liens à la place. [Voir RWEB_0033](https://rweb.greenit.fr/fr/fiches/RWEB_0033-ne-pas-afficher-les-documents-a-l-interieur-des-pages)",
+								"score": 1,
+								"displayValue": "Aucun document embarqué détecté",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-limit-css-files",
+								"title": "RWEB_0035 - Limiter les feuilles de style CSS (≤ 7)",
+								"description": "Limitez le nombre de fichiers CSS à 7 ou moins pour réduire les requêtes HTTP. [Voir RWEB_0035](https://rweb.greenit.fr/fr/fiches/RWEB_0035-limiter-le-nombre-de-css)",
+								"score": 1,
+								"displayValue": "0 feuille(s) de style CSS",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-css-splitting",
+								"title": "RWEB_0036 - Séparer le CSS par contexte média",
+								"description": "Découpez les gros fichiers CSS par type de média (impression, mobile…) pour que seuls les styles pertinents soient analysés. [Voir RWEB_0036](https://rweb.greenit.fr/fr/fiches/RWEB_0036-decouper-les-css)",
+								"score": 1,
+								"displayValue": "Tous les grands fichiers CSS sont ciblés par type de média",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-prefer-css",
+								"title": "RWEB_0037 - Préférer CSS aux images pour les éléments d'interface",
+								"description": "Remplacez les icônes bitmap ou SVG dans les boutons et liens par des formes CSS ou des polices d'icônes pour réduire les requêtes HTTP. [Voir RWEB_0037](https://rweb.greenit.fr/fr/fiches/RWEB_0037-preferer-les-css-aux-images)",
+								"score": 1,
+								"displayValue": "Aucune image icône dans les boutons/liens détectée",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-no-bitmap-ui",
+								"title": "RWEB_0038 - Éviter les images bitmap pour les éléments d'interface",
+								"description": "Remplacez les images bitmap (PNG/JPG/WebP) dans les en-têtes, navigations, pieds de page et boutons par du SVG ou du CSS. [Voir RWEB_0038](https://rweb.greenit.fr/fr/fiches/RWEB_0038-eviter-d-utiliser-des-images-matricielles-pour-l-interface)",
+								"score": 1,
+								"displayValue": "Aucune image bitmap dans des conteneurs d'interface",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-no-inline-assets",
+								"title": "RWEB_0042 - Ressources inline détectées",
+								"description": "Minimisez l'utilisation de scripts et styles inline. [Voir RWEB_0042](https://rweb.greenit.fr/fr/fiches/RWEB_0042-externaliser-les-css-et-javascript)",
+								"score": 0,
+								"displayValue": "3 ressource(s) inline trouvée(s)",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-lazy-loading",
+								"title": "RWEB_0051 - Utiliser le chargement différé pour les images",
+								"description": "Ajoutez loading=\"lazy\" aux images sous la ligne de flottaison pour différer leur téléchargement. [Voir RWEB_0051](https://rweb.greenit.fr/fr/fiches/RWEB_0051-utiliser-le-chargement-paresseux)",
+								"score": 1,
+								"displayValue": "Toutes les images utilisent le chargement différé",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-no-canvas",
+								"title": "RWEB_0055 - Éviter les éléments canvas",
+								"description": "Minimisez l'utilisation des éléments canvas. [Voir RWEB_0055](https://rweb.greenit.fr/fr/fiches/RWEB_0055-limiter-le-recours-aux-canvas)",
+								"score": 1,
+								"displayValue": "Aucun élément canvas",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-no-social-sdk",
+								"title": "RWEB_0059 - Pas de boutons officiels de réseaux sociaux",
+								"description": "Remplacez les boutons officiels des réseaux sociaux par des liens statiques pour réduire les requêtes tierces. [Voir RWEB_0059](https://rweb.greenit.fr/fr/fiches/RWEB_0059-remplacer-les-boutons-officiels-de-partage-des-reseaux-sociaux)",
+								"score": 1,
+								"displayValue": "0 requête(s) SDK de réseau social détectée(s)",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-service-worker",
+								"title": "RWEB_0060 - Aucun Service Worker actif détecté",
+								"description": "Un Service Worker améliore la mise en cache et réduit les requêtes réseau. [Voir RWEB_0060](https://rweb.greenit.fr/fr/fiches/RWEB_0060-economiser-de-la-bande-passante-grace-a-un-serviceworker)",
+								"score": 0,
+								"displayValue": "Aucun Service Worker",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-cache-control",
+								"title": "RWEB_0075 - Utiliser les en-têtes Cache-Control",
+								"description": "Définissez des en-têtes Cache-Control sur les ressources HTML, CSS, JS et les polices pour réduire les téléchargements répétés. [Voir RWEB_0075](https://rweb.greenit.fr/fr/fiches/RWEB_0075-ajouter-des-entetes-expires-ou-cache-control)",
+								"score": 1,
+								"displayValue": "Toutes les ressources ont un Cache-Control",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-http-compression",
+								"title": "RWEB_0076 - Ressources texte non compressées",
+								"description": "Activez la compression gzip/brotli pour les ressources HTML, CSS et JS. [Voir RWEB_0076](https://rweb.greenit.fr/fr/fiches/RWEB_0076-compresser-les-fichiers-css-javascript-html-et-svg)",
+								"score": 0,
+								"displayValue": "0/19 ressources texte compressées (0%)",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-minification",
+								"title": "RWEB_0077 - Minifier les CSS et JS inline",
+								"description": "Minifiez les blocs de style et de script inline pour réduire le poids de la page. [Voir RWEB_0077](https://rweb.greenit.fr/fr/fiches/RWEB_0077-minifier-les-fichiers-css-javascript-html-et-svg)",
+								"score": 1,
+								"displayValue": "Toutes les ressources inline semblent minifiées",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-combine-assets",
+								"title": "RWEB_0078 - Trop de fichiers CSS/JS séparés",
+								"description": "Concaténez les fichiers CSS et JS pour réduire les requêtes HTTP. [Voir RWEB_0078](https://rweb.greenit.fr/fr/fiches/RWEB_0078-combiner-les-fichiers-css-et-javascript)",
+								"score": 0,
+								"displayValue": "0 CSS + 18 JS fichiers",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-no-cookie-on-static",
+								"title": "RWEB_0081 - Pas de cookies sur les ressources statiques",
+								"description": "Évitez d'envoyer des cookies avec les ressources statiques (images, CSS, JS, polices). [Voir RWEB_0081](https://rweb.greenit.fr/fr/fiches/RWEB_0081-heberger-les-ressources-cssjs-sur-un-domaine-sans-cookie)",
+								"score": 1,
+								"displayValue": "Aucune ressource statique avec en-tête Cookie",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-limit-domains",
+								"title": "RWEB_0082 - Limiter les domaines de ressources (≤ 5)",
+								"description": "Réduisez le nombre de domaines uniques servant les ressources de la page. [Voir RWEB_0082](https://rweb.greenit.fr/fr/fiches/RWEB_0082-limiter-le-nombre-de-domaines-servant-les-ressources)",
+								"score": 1,
+								"displayValue": "1 domaine(s) unique(s)",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-uses-http2",
+								"title": "RWEB_0083 - Ressources servies en HTTP/1",
+								"description": "Utilisez HTTP/2 pour bénéficier du multiplexage et de la compression des en-têtes. [Voir RWEB_0083](https://rweb.greenit.fr/fr/fiches/RWEB_0083-privilegier-http2-a-http1)",
+								"score": 0,
+								"displayValue": "21 ressource(s) en HTTP/1",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-hsts",
+								"title": "RWEB_0084 - En-tête HSTS manquant",
+								"description": "Activez l'en-tête HSTS (HTTP Strict-Transport-Security) pour imposer HTTPS. [Voir RWEB_0084](https://rweb.greenit.fr/fr/fiches/RWEB_0084-favoriser-hsts-preload-list-aux-redirections-301)",
+								"score": 0,
+								"displayValue": "En-tête HSTS absent",
+								"status": "KO"
+							},
+							{
+								"id": "rweb-no-gif",
+								"title": "RWEB_0099 - Éviter l'utilisation de GIFs",
+								"description": "Évitez d'utiliser des GIFs pour les animations ou images ; utilisez des formats modernes à la place. [Voir RWEB_0099](https://rweb.greenit.fr/fr/fiches/RWEB_0099-limiter-l-utilisation-des-gifs-animes)",
+								"score": 1,
+								"displayValue": "Aucun GIF détecté",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-optimize-svg",
+								"title": "RWEB_0100 - Optimiser les fichiers SVG",
+								"description": "Les fichiers SVG de plus de 2048 octets contiennent probablement des métadonnées ou commentaires qui peuvent être supprimés. [Voir RWEB_0100](https://rweb.greenit.fr/fr/fiches/RWEB_0100-optimiser-les-images-vectorielles)",
+								"score": 1,
+								"displayValue": "Tous les fichiers SVG semblent optimisés",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-no-autoplay",
+								"title": "RWEB_0106 - Pas de lecture automatique vidéo/audio",
+								"description": "Évitez la lecture automatique sur les éléments vidéo et audio. [Voir RWEB_0106](https://rweb.greenit.fr/fr/fiches/RWEB_0106-eviter-la-lecture-et-le-chargement-automatique-des-videos-et-des-sons)",
+								"score": 1,
+								"displayValue": "0 élément(s) avec lecture automatique",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-limit-analytics",
+								"title": "RWEB_0111 - Limiter les outils analytics (≤ 1)",
+								"description": "Limitez les outils d'analytics à un par page. [Voir RWEB_0111](https://rweb.greenit.fr/fr/fiches/RWEB_0111-limiter-les-outils-d-analytics-et-les-donnees-collectees)",
+								"score": 1,
+								"displayValue": "0 outil(s) analytics détecté(s)",
+								"status": "OK"
+							},
+							{
+								"id": "rweb-no-redirects",
+								"title": "RWEB_0112 - Éviter les redirections HTTP (≤ 1)",
+								"description": "Réduisez les redirections HTTP pour éviter des allers-retours inutiles. [Voir RWEB_0112](https://rweb.greenit.fr/fr/fiches/RWEB_0112-eviter-les-redirections)",
+								"score": 1,
+								"displayValue": "0 redirection(s)",
+								"status": "OK"
+							}
+						]
+					},
+					"bp": {
+						"title": "Bonnes pratiques generiques d'ecoconception",
+						"bestPractices": [
+							{
+								"id": "bp-badly-sized-images",
+								"title": "Ne pas redimensionner les images dans le navigateur",
+								"description": "Ne redimensionnez pas les images via les attributs HTML height et width. Cela envoie les images dans leur taille originale, gaspillant bande passante et puissance de calcul. Redimensionnez les images avec un logiciel tel que Photoshop plutôt qu'en HTML.",
+								"score": 1,
+								"displayValue": "Trouvé 0 image(s) redimensionnée(s)",
+								"status": "OK"
+							},
+							{
+								"id": "bp-cookie-size",
+								"title": "Taille des cookies ≤ 512 octets",
+								"description": "Maintenez les en-têtes de requête Cookie sous 512 octets pour réduire la surcharge HTTP.",
+								"score": 1,
+								"displayValue": "Aucun en-tête Cookie ne dépasse 512 octets",
+								"status": "OK"
+							},
+							{
+								"id": "bp-no-http-errors",
+								"title": "Éviter les erreurs de requêtes HTTP (4xx/5xx)",
+								"description": "Corrigez les ressources cassées (404, 500…) pour éviter une charge réseau inutile et améliorer l'expérience utilisateur.",
+								"score": 1,
+								"displayValue": "Aucune erreur HTTP",
+								"status": "OK"
+							},
+							{
+								"id": "bp-no-document-write",
+								"title": "Éviter l'API d'écriture DOM dans les scripts inline",
+								"description": "L'utilisation de l'API DOM d'écriture dépréciée bloque l'analyse HTML et force un re-parsing complet. Remplacez-la par des méthodes modernes (ex: element.insertAdjacentHTML ou appendChild).",
+								"score": 1,
+								"displayValue": "Aucun appel à l'API d'écriture DOM détecté",
+								"status": "OK"
+							},
+							{
+								"id": "bp-no-hidden-images",
+								"title": "Éviter de télécharger des images non affichées",
+								"description": "Les images téléchargées mais masquées gaspillent de la bande passante. Utilisez le chargement différé ou supprimez-les.",
+								"score": 1,
+								"displayValue": "Aucune image masquée téléchargée",
+								"status": "OK"
+							},
+							{
+								"id": "bp-no-js-errors",
+								"title": "Aucune erreur JavaScript à l'exécution dans la console",
+								"description": "Corrigez les erreurs JavaScript détectées à l'exécution. Il s'agit d'appels à console.error() enregistrés pendant le chargement de la page, indiquant des fonctionnalités cassées. Contrairement à l'analyse statique (RWEB_0043), cette vérification ne couvre pas les problèmes de style de code ou de syntaxe.",
+								"score": 1,
+								"displayValue": "Aucune erreur JavaScript à l'exécution",
+								"status": "OK"
+							},
+							{
+								"id": "bp-no-plugins",
+								"title": "Ne pas utiliser de plugins navigateur (Flash, Silverlight, Java)",
+								"description": "Supprimez les éléments Flash, Silverlight et Java applet — ces plugins sont obsolètes, non sécurisés et non supportés.",
+								"score": 1,
+								"displayValue": "Aucun plugin navigateur détecté",
+								"status": "OK"
+							},
+							{
+								"id": "bp-no-unused-code",
+								"title": "Scripts externes bloquants le rendu détectés",
+								"description": "Ajoutez async ou defer aux scripts externes pour éviter de bloquer le chemin de rendu critique. Les scripts bloquants retardent l'affichage de la page et augmentent inutilement la consommation CPU.",
+								"score": 0,
+								"displayValue": "2 script(s) externe(s) bloquant(s) le rendu",
+								"status": "KO"
+							}
+						]
+					}
+				}
+			]
+		}
+	]
+}

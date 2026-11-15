@@ -1,4 +1,4 @@
-# Airbnb
+# EcoBnb
 
 **Écologie + Airbnb**
 
