@@ -10,7 +10,7 @@ function App() {
           <ul>
             <li>
               <Link to="/">
-                <strong>🌿 EcoBnb</strong>
+                <strong> EcoBnb</strong>
               </Link>
             </li>
           </ul>
