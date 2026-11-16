@@ -225,9 +225,9 @@ Nous avons choisi de comparer l'impact du scénario « Rechercher et consulter u
 
 | Service | Score (sur 100) | Classe | Détail des mesures
 | --- | --: | --: | --:
-| Airbnb | 9 | G 🟫 | […](./benchmark/AirBnb/ecoindex-environmental-statement.md)
-| Booking | 17 | F 🟪 | […](./benchmark/Booking/ecoindex-environmental-statement.md)
-| Clévacances (à titre de comparaison) | 21 | F 🟪 | […](./benchmark/Clevacances/ecoindex-environmental-statement.md)
+| Airbnb | 9 | G | […](./benchmark/AirBnb/ecoindex-environmental-statement.md)
+| Booking | 17 | F | […](./benchmark/Booking/ecoindex-environmental-statement.md)
+| Clévacances (à titre de comparaison) | 21 | F | […](./benchmark/Clevacances/ecoindex-environmental-statement.md)
 
 __Tab.1__ : Mesure de l'EcoIndex moyen de services de réservation d'hébergements.
 
@@ -374,8 +374,8 @@ Dans l'état actuel du prototype, il est possible d'avoir une première idée de
 
 |   | EcoIndex | GES (gCO2e) | Taille du DOM | Requêtes | Taille de la page (ko)
 |---|--------:|------------:|--------------:|---------:|---------------------:
-| Mode « développement » | 66 C 🟨 | 1,68 | 350 | 21 | 5 162
-| Mode « pré-production » | 82 A 🟦 | 1,36 | 349 | 4 | 101
+| Mode « développement » | 66 C | 1,68 | 350 | 21 | 5 162
+| Mode « pré-production » | 82 A | 1,36 | 349 | 4 | 101
 
 __Tab.4__ : Évaluation de l'impact de la page de la liste des logements en mode « développement » (`npm run dev`, port 5173) et en mode « pré-production » (`npm run build` + `npm run preview`, port 4173).
 
@@ -390,9 +390,9 @@ Avec l'ajout de ce modèle de page et la navigation entre les deux types de page
 
 |   | EcoIndex | GES (gCO2e) | Taille du DOM | Requêtes | Taille de la page (ko)
 |---|--------:|------------:|--------------:|---------:|---------------------:
-| 1. Consulter la liste des logements   | 82 A 🟦 | 1,36 | 349 | 3 | 101
-| 2. Consulter le détail d'un logement  | 94 A 🟦 | 1,13 |  62 | 3 |   1
-| 3. Revenir à la liste et choisir un autre logement | 94 A 🟦 | 1,12 |  57 | 3 |   1
+| 1. Consulter la liste des logements   | 82 A | 1,36 | 349 | 3 | 101
+| 2. Consulter le détail d'un logement  | 94 A | 1,13 |  62 | 3 |   1
+| 3. Revenir à la liste et choisir un autre logement | 94 A | 1,12 |  57 | 3 |   1
 
 __Tab.5__ : Évaluation de l'impact du scénario « Rechercher et consulter un logement » dans le prototype `v1.0.0` (mesures réalisées en mode pré-production avec `lighthouse-plugin-ecoindex`).
 
