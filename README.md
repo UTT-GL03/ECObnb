@@ -404,6 +404,39 @@ Pour cette nouvelle version du prototype (`v1.0.1`), identique du point de vue f
 
 Concernant l'évaluation de l'impact environnemental du scénario, par rapport au tableau précédent (cf. Tab.5), à l'exception du nombre de requêtes qui est incrémenté de 1, les résultats sont strictement identiques grâce au cache navigateur à partir de la deuxième page.
 
+## Mesure de la consommation énergétique lors du passage à l'échelle
+
+L'échantillon actuel (25 logements, 72 avis) pèse environ **44 ko**. D'après cet échantillon, un logement sans ses avis occupe environ **1,2 ko** et un avis environ **200 octets**. Mais en production, plusieurs types de données se multiplieraient avec l'usage du service.
+
+Les estimations ci-dessous reprennent les hypothèses du modèle économique : une phase de lancement dans une ou deux villes, avec environ 3 000 réservations par mois (seuil de rentabilité), puis une phase nationale à environ 10 000 réservations par mois.
+
+| Données | Ce qui les fait augmenter | Taille unitaire estimée | Lancement (par an) | Phase nationale (par an) |
+|---|---|--:|--:|--:|
+| Annonces de logements | Inscription de nouveaux hôtes | ~ 1,2 ko | ~ 2 000 annonces, ~ 2,4 Mo | ~ 50 000 annonces, ~ 60 Mo |
+| Comptes (voyageurs et hôtes) | Chaque nouvel utilisateur | ~ 0,5 ko | ~ 30 000 comptes, ~ 15 Mo | ~ 100 000 comptes, ~ 50 Mo |
+| Réservations | Chaque réservation | ~ 0,3 ko | ~ 36 000, ~ 11 Mo | ~ 120 000, ~ 36 Mo |
+| Avis des voyageurs | Environ un avis pour deux réservations | ~ 0,2 ko | ~ 18 000, ~ 3,6 Mo | ~ 60 000, ~ 12 Mo |
+| Messages entre hôte et voyageur | Environ 5 messages par réservation | ~ 0,3 ko | ~ 180 000, ~ 54 Mo | ~ 600 000, ~ 180 Mo |
+
+__Tab.6__ : Estimation de l'ordre de grandeur des données qui se multiplient avec l'usage du service.
+
+Ces volumes restent modestes pour le stockage (quelques centaines de Mo par an). En revanche, s'ils ne sont jamais supprimés, ils **s'accumulent année après année**. Le stockage, les sauvegardes et la durée des requêtes en base de données augmentent alors indéfiniment.
+
+Le principal risque concerne les **données transférées vers le navigateur**. Dans le prototype, toute la liste est envoyée en un seul fichier. Avec 50 000 annonces, ce fichier dépasserait **60 Mo** pour chaque affichage de la page de résultats, contre 44 ko aujourd'hui. Pour garder un impact proche de celui mesuré (cf. Tab.5), il faudra :
+
+* filtrer les logements côté serveur (par ville) et limiter le nombre de résultats envoyés (20 à 30 logements par page, comme prévu dans la maquette) ;
+* continuer à charger les avis et les services uniquement sur leurs pages dédiées (`/{id}/reviews`, `/{id}/services`), puisque le nombre d'avis d'un logement augmente sans limite avec le temps.
+
+### Politique de suppression des données
+
+Pour éviter que les données augmentent sans limite, nous appliquerons la politique de suppression suivante :
+
+* **Les comptes inactifs depuis 1 an** (aucune connexion, réservation ni modification) sont supprimés, ainsi que les données qui leur sont rattachées.
+* **Les annonces inactives depuis 1 an** (aucune réservation ni mise à jour) sont supprimées.
+* **Les annonces déjà prises** (logement déjà réservé) sont **supprimées immédiatement** : elles ne sont pas archivées et n'apparaissent plus dans les résultats.
+
+Avec cette politique, le volume de données ne dépend plus du temps écoulé depuis le lancement du service. Il dépend seulement de l'activité de la dernière année : il reste borné aux ordres de grandeur du Tab.6 au lieu de les additionner chaque année.
+
 ## Conclusion
 
 Airbnb facilite les échanges entre voyageurs et hébergeurs et contribue à valoriser les logements existants. Cependant, il peut aussi encourager davantage de déplacements touristiques et donc augmenter son impact environnemental.
