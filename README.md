@@ -437,6 +437,24 @@ Pour éviter que les données augmentent sans limite, nous appliquerons la polit
 
 Avec cette politique, le volume de données ne dépend plus du temps écoulé depuis le lancement du service. Il dépend seulement de l'activité de la dernière année : il reste borné aux ordres de grandeur du Tab.6 au lieu de les additionner chaque année.
 
+### Évolution de l'EcoIndex lors du passage à l'échelle
+
+Pour simuler le passage à l'échelle, nous avons généré, à partir du même [modèle de données](./frontend/sample_data.hbs), un échantillon de **2 000 logements** (ordre de grandeur de la phase de lancement, cf. Tab.6), soit un fichier de données de **4,2 Mo** au lieu de 44 ko. Le scénario « Rechercher et consulter un logement » a ensuite été mesuré dans les mêmes conditions que précédemment (mode pré-production, `lighthouse-plugin-ecoindex`).
+
+Les mesures [avant](./ecoindex-reports/) et [après](./ecoindex-scaled-reports/) la simulation du passage à l'échelle montrent bien (cf. Tab.7) l'augmentation du poids des téléchargements, mais aussi l'augmentation du nombre d'éléments de la page de la liste des logements.
+
+|   | EcoIndex | GES (gCO2e) | Taille du DOM | Requêtes | Taille de la page (ko)
+|---|--------:|------------:|--------------:|---------:|---------------------:
+| 1. Consulter la liste des logements | ~~82 A~~<br>44 D | ~~1,36~~<br>2,12 | ~~349~~<br>26 024 | 4 | ~~104~~<br>1 044
+| 2. Consulter le détail d'un logement | ~~94 A~~<br>93 A | ~~1,13~~<br>1,14 | ~~62~~<br>66 | 4 | 1
+| 3. Revenir à la liste et choisir un autre logement | 94 A | 1,12 | ~~57~~<br>54 | 4 | 1
+
+__Tab.7__ : Effet du passage à l'échelle (25 → 2 000 logements) sur l'impact du scénario « Rechercher et consulter un logement » dans le prototype `v1.0.1` (valeurs barrées : mesures avant la simulation).
+
+La page de la liste est la plus touchée : elle affiche désormais tous les logements, d'où un DOM **75 fois plus grand** et une note qui passe de A à D. Les pages de détail ne changent presque pas, car le fichier de données est déjà dans le cache du navigateur. Leur rendu ne dépend que d'un seul logement.
+
+La taille transférée (1 044 ko) est mesurée avec la compression gzip du serveur de pré-production. Sans compression, comme avec la configuration nginx actuelle, le navigateur téléchargerait les **4,2 Mo** complets. À l'échelle nationale (50 000 logements), le fichier dépasserait 100 Mo. Ces mesures confirment donc que le filtrage par ville et la limitation du nombre de résultats côté serveur sont indispensables avant la mise en production.
+
 ## Conclusion
 
 Airbnb facilite les échanges entre voyageurs et hébergeurs et contribue à valoriser les logements existants. Cependant, il peut aussi encourager davantage de déplacements touristiques et donc augmenter son impact environnemental.

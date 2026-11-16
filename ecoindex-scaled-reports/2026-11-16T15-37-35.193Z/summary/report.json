@@ -1,0 +1,211 @@
+[
+	[
+		{
+			"url": "http://localhost:4173/",
+			"score": "0.87",
+			"detail": {
+				"performance": 0.66,
+				"accessibility": 1,
+				"best-practices": 1,
+				"seo": 0.82,
+				"lighthouse-plugin-ecoindex-core": 0.44
+			},
+			"ecoindex": {
+				"eco-index-score": {
+					"score": "0.44",
+					"displayValue": "44/100"
+				},
+				"eco-index-grade": {
+					"score": "D",
+					"displayValue": "D"
+				},
+				"eco-index-water": {
+					"score": "3.18",
+					"displayValue": "3.18 cl"
+				},
+				"eco-index-ghg": {
+					"score": "2.12",
+					"displayValue": "2.12 g eqCO2"
+				},
+				"eco-index-nodes": {
+					"score": 26024,
+					"displayValue": "26024 DOM elements"
+				},
+				"eco-index-size": {
+					"score": 1044429,
+					"displayValue": "1044 KiB (transfered)"
+				},
+				"eco-index-requests": {
+					"score": 4,
+					"displayValue": "4 requests"
+				}
+			}
+		},
+		{
+			"url": "http://localhost:4173/3",
+			"score": "0.95",
+			"detail": {
+				"performance": 1,
+				"accessibility": 1,
+				"best-practices": 1,
+				"seo": 0.82,
+				"lighthouse-plugin-ecoindex-core": 0.93
+			},
+			"ecoindex": {
+				"eco-index-score": {
+					"score": "0.93",
+					"displayValue": "93/100"
+				},
+				"eco-index-grade": {
+					"score": "A",
+					"displayValue": "A"
+				},
+				"eco-index-water": {
+					"score": "1.71",
+					"displayValue": "1.71 cl"
+				},
+				"eco-index-ghg": {
+					"score": "1.14",
+					"displayValue": "1.14 g eqCO2"
+				},
+				"eco-index-nodes": {
+					"score": 66,
+					"displayValue": "66 DOM elements"
+				},
+				"eco-index-size": {
+					"score": 1204,
+					"displayValue": "1 KiB (transfered)"
+				},
+				"eco-index-requests": {
+					"score": 4,
+					"displayValue": "4 requests"
+				}
+			}
+		}
+	],
+	[
+		{
+			"url": "http://localhost:4173/",
+			"score": "0.95",
+			"detail": {
+				"performance": 0.98,
+				"accessibility": 1,
+				"best-practices": 1,
+				"seo": 0.82,
+				"lighthouse-plugin-ecoindex-core": 0.44
+			},
+			"ecoindex": {
+				"eco-index-score": {
+					"score": "0.44",
+					"displayValue": "44/100"
+				},
+				"eco-index-grade": {
+					"score": "D",
+					"displayValue": "D"
+				},
+				"eco-index-water": {
+					"score": "3.18",
+					"displayValue": "3.18 cl"
+				},
+				"eco-index-ghg": {
+					"score": "2.12",
+					"displayValue": "2.12 g eqCO2"
+				},
+				"eco-index-nodes": {
+					"score": 26024,
+					"displayValue": "26024 DOM elements"
+				},
+				"eco-index-size": {
+					"score": 1044429,
+					"displayValue": "1044 KiB (transfered)"
+				},
+				"eco-index-requests": {
+					"score": 4,
+					"displayValue": "4 requests"
+				}
+			}
+		},
+		{
+			"url": "http://localhost:4173/3",
+			"score": "0.95",
+			"detail": {
+				"performance": 1,
+				"accessibility": 1,
+				"best-practices": 1,
+				"seo": 0.82,
+				"lighthouse-plugin-ecoindex-core": 0.93
+			},
+			"ecoindex": {
+				"eco-index-score": {
+					"score": "0.93",
+					"displayValue": "93/100"
+				},
+				"eco-index-grade": {
+					"score": "A",
+					"displayValue": "A"
+				},
+				"eco-index-water": {
+					"score": "1.71",
+					"displayValue": "1.71 cl"
+				},
+				"eco-index-ghg": {
+					"score": "1.14",
+					"displayValue": "1.14 g eqCO2"
+				},
+				"eco-index-nodes": {
+					"score": 66,
+					"displayValue": "66 DOM elements"
+				},
+				"eco-index-size": {
+					"score": 1204,
+					"displayValue": "1 KiB (transfered)"
+				},
+				"eco-index-requests": {
+					"score": 4,
+					"displayValue": "4 requests"
+				}
+			}
+		},
+		{
+			"url": "http://localhost:4173/7",
+			"score": "0.95",
+			"detail": {
+				"performance": 1,
+				"accessibility": 1,
+				"best-practices": 1,
+				"seo": 0.82,
+				"lighthouse-plugin-ecoindex-core": 0.94
+			},
+			"ecoindex": {
+				"eco-index-score": {
+					"score": "0.94",
+					"displayValue": "94/100"
+				},
+				"eco-index-grade": {
+					"score": "A",
+					"displayValue": "A"
+				},
+				"eco-index-water": {
+					"score": "1.67",
+					"displayValue": "1.67 cl"
+				},
+				"eco-index-ghg": {
+					"score": "1.12",
+					"displayValue": "1.12 g eqCO2"
+				},
+				"eco-index-nodes": {
+					"score": 54,
+					"displayValue": "54 DOM elements"
+				},
+				"eco-index-size": {
+					"score": 1204,
+					"displayValue": "1 KiB (transfered)"
+				},
+				"eco-index-requests": {
+					"score": 4,
+					"displayValue": "4 requests"
+				}
+			}
+		}
+	]
+]

@@ -1,0 +1,96 @@
+{
+	"version_api": "1.0.0",
+	"date": "2026-11-16T15:37:35.193Z",
+	"best_pages": {
+		"course-name": "Pages principales",
+		"course-target": "not required",
+		"course-description": "Liste des logements ; Détail logement",
+		"summary": {
+			"eco-index-grade": "C",
+			"eco-index-score": 69,
+			"eco-index-water": "24.45",
+			"eco-index-water-equivalent": 3,
+			"eco-index-ghg": "1.63",
+			"eco-index-ghg-equivalent": 8
+		},
+		"pages": [
+			{
+				"requestedUrl": "http://localhost:4173/",
+				"eco-index-grade": "D",
+				"eco-index-score": 44,
+				"eco-index-ghg": "2.12",
+				"eco-index-ghg-equivalent": 10,
+				"eco-index-water": "31.80",
+				"eco-index-water-equivalent": 4,
+				"eco-index-nodes": 26024,
+				"eco-index-size": 1044429,
+				"eco-index-requests": 4
+			},
+			{
+				"requestedUrl": "http://localhost:4173/3",
+				"eco-index-grade": "A",
+				"eco-index-score": 93,
+				"eco-index-ghg": "1.14",
+				"eco-index-ghg-equivalent": 5,
+				"eco-index-water": "17.10",
+				"eco-index-water-equivalent": 2,
+				"eco-index-nodes": 66,
+				"eco-index-size": 1204,
+				"eco-index-requests": 4
+			}
+		]
+	},
+	"courses": [
+		{
+			"course-name": "Rechercher et consulter un logement",
+			"course-target": "not required",
+			"course-description": "Liste ; Détail n°3 ; Retour liste ; Détail n°7",
+			"summary": {
+				"eco-index-grade": "B",
+				"eco-index-score": 77,
+				"eco-index-water": "21.87",
+				"eco-index-water-equivalent": 2,
+				"eco-index-ghg": "1.46",
+				"eco-index-ghg-equivalent": 7
+			},
+			"pages": [
+				{
+					"requestedUrl": "http://localhost:4173/",
+					"eco-index-grade": "D",
+					"eco-index-score": 44,
+					"eco-index-ghg": "2.12",
+					"eco-index-ghg-equivalent": 10,
+					"eco-index-water": "31.80",
+					"eco-index-water-equivalent": 4,
+					"eco-index-nodes": 26024,
+					"eco-index-size": 1044429,
+					"eco-index-requests": 4
+				},
+				{
+					"requestedUrl": "http://localhost:4173/3",
+					"eco-index-grade": "A",
+					"eco-index-score": 93,
+					"eco-index-ghg": "1.14",
+					"eco-index-ghg-equivalent": 5,
+					"eco-index-water": "17.10",
+					"eco-index-water-equivalent": 2,
+					"eco-index-nodes": 66,
+					"eco-index-size": 1204,
+					"eco-index-requests": 4
+				},
+				{
+					"requestedUrl": "http://localhost:4173/7",
+					"eco-index-grade": "A",
+					"eco-index-score": 94,
+					"eco-index-ghg": "1.12",
+					"eco-index-ghg-equivalent": 5,
+					"eco-index-water": "16.70",
+					"eco-index-water-equivalent": 2,
+					"eco-index-nodes": 54,
+					"eco-index-size": 1204,
+					"eco-index-requests": 4
+				}
+			]
+		}
+	]
+}
