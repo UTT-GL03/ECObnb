@@ -13,7 +13,7 @@ function Stars({ rating }) {
 
 function TransitBadge({ meters }) {
   const cls = meters <= 300 ? 'transit-green' : meters <= 700 ? 'transit-orange' : 'transit-red'
-  return <span className={`transit-badge ${cls}`}>🚌 {meters} m</span>
+  return <span className={`transit-badge ${cls}`}>{meters} m</span>
 }
 
 function ListingCard({ id, city, type, title, host, price, capacity, rating, transit_distance }) {
@@ -21,10 +21,10 @@ function ListingCard({ id, city, type, title, host, price, capacity, rating, tra
     <article className="listing-card">
       <header>
         <span className="tag">{type}</span>
-        <span className="city-label">📍 {city}</span>
+        <span className="city-label">{city}</span>
       </header>
       <Link to={`/${id}`}><h3>{title}</h3></Link>
-      <p className="capacity">👤 {host} · {capacity} pers.</p>
+      <p className="capacity">{host} · {capacity} pers.</p>
       <footer>
         <span className="price">{price} €<small>/nuit</small></span>
         <Stars rating={rating} />

@@ -17,17 +17,16 @@ function Stars({ rating, max = 5 }) {
 function Services({ services }) {
   if (!services) return <p><em>Services non renseignés.</em></p>
   const labels = {
-    wifi:            { label: 'Wi-Fi',       icon: '📶' },
-    kitchen:         { label: 'Cuisine',      icon: '🍳' },
-    washing_machine: { label: 'Lave-linge',   icon: '🫧' },
-    heating:         { label: 'Chauffage',    icon: '🔥' },
-    bike_storage:    { label: 'Local vélos',  icon: '🚲' },
+    wifi:            'Wi-Fi',
+    kitchen:         'Cuisine',
+    washing_machine: 'Lave-linge',
+    heating:         'Chauffage',
+    bike_storage:    'Local vélos',
   }
   return (
     <div className="services-grid">
-      {Object.entries(labels).map(([key, { label, icon }]) => (
+      {Object.entries(labels).map(([key, label]) => (
         <div key={key} className={`service-item ${services[key] ? 'service-ok' : 'service-no'}`}>
-          <span>{icon}</span>
           <span>{label}</span>
           <span style={{ marginLeft: 'auto' }}>{services[key] ? '✓' : '✗'}</span>
         </div>
@@ -91,10 +90,10 @@ function Listing() {
             <span className="tag">{type}</span>
             <h2>{title}</h2>
             <div className="info-row">
-              <span className="info-pill">📍 {city}</span>
-              <span className="info-pill">👤 Hôte : {host}</span>
-              <span className="info-pill">🏠 {capacity} pers. max.</span>
-              <span className={`transit-badge ${transitClass}`}>🚌 {transit_distance} m</span>
+              <span className="info-pill">{city}</span>
+              <span className="info-pill">Hôte : {host}</span>
+              <span className="info-pill">{capacity} pers. max.</span>
+              <span className={`transit-badge ${transitClass}`}>{transit_distance} m</span>
             </div>
             <div className="info-row">
               <Stars rating={rating} />
