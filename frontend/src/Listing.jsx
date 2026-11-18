@@ -66,7 +66,7 @@ function Listing() {
   }, [id])
 
   if (listing === null) {
-    return <main className="container"><p aria-busy="true">Chargement…</p></main>
+    return <main className="container"><p aria-busy="true">Chargement</p></main>
   }
 
   if (!listing) {
