@@ -1,0 +1,35 @@
+# To be used with GreenIT Analysis CLI
+# Scénario prioritaire : « Rechercher et consulter un logement »
+- name: Rechercher et consulter un logement
+  url: http://localhost/
+  waitForSelector: .listing-card
+  actions:
+    - name: Consulter la liste des logements
+      type: scroll
+    - name: Choisir une destination
+      type: click
+      element: .city-filters > button:nth-child(2)
+      waitForSelector: .listing-card
+    - name: Consulter les logements de la destination
+      type: scroll
+    - name: Choisir un logement
+      type: click
+      element: .listings-grid > article:nth-child(1) > a
+      pageChange: true
+      waitForSelector: .detail-header
+    - name: Lire l'annonce
+      type: scroll
+    - name: Retourner aux résultats
+      type: click
+      element: .breadcrumb > a
+      pageChange: true
+      waitForSelector: .listing-card
+    - name: Consulter la liste des logements
+      type: scroll
+    - name: Choisir un autre logement
+      type: click
+      element: .listings-grid > article:nth-child(2) > a
+      pageChange: true
+      waitForSelector: .detail-header
+    - name: Lire l'autre annonce
+      type: scroll

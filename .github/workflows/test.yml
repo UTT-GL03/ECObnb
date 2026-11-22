@@ -12,7 +12,7 @@ jobs:
       - name: Set up NodeJS
         uses: actions/setup-node@v6
         with:
-          node-version: 26
+          node-version: 24
           cache: npm
           cache-dependency-path: frontend/package-lock.json
       - name: Install frontend dependencies
@@ -34,9 +34,13 @@ jobs:
     steps:
       - name: Download sources
         uses: actions/checkout@v5
+      - name: Set up NodeJS
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
       - name: Generate sample
         run: |
-          npx --yes dummy-json sample_data.hbs > sample_data.json
+          npx --yes dummy-json frontend/sample_data.hbs > sample_data.json
       - name: Save samples for later
         uses: actions/upload-artifact@v4
         with:
@@ -48,9 +52,14 @@ jobs:
       - build
       - build_samples
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Download sources
         uses: actions/checkout@v5
+      - name: Set up NodeJS
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
       - name: Start application
         uses: ./.github/actions/start
       - name: Install GreenIT Analysis CLI
@@ -62,36 +71,9 @@ jobs:
           npm link
       - name: Run GreenIT Analysis CLI
         run: |
-          greenit analyse --format html --ci scenarios/read_daily_articles.yml
+          greenit analyse --format html --ci scenarios/rechercher_et_consulter_un_logement.yml
       - name: Save results
         uses: actions/upload-artifact@v4
         with:
           name: EcoIndex
-          path: Consulterlesactualites.html
-
-  measure_energy_consumption:
-    needs:
-      - build
-      - build_samples
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download sources
-        uses: actions/checkout@v5
-      - name: Start application
-        uses: ./.github/actions/start
-      - name: Install GreenFrame CLI
-        run: |
-          wget https://github.com/benel/greenframe-cli/archive/refs/heads/post-app.zip
-          unzip post-app.zip
-          cd greenframe-cli-post-app
-          npm install -g corepack
-          yarn
-          yarn build 
-      - name: Run GreenFrame CLI
-        run: |
-          ./greenframe-cli-post-app/bin/run analyze > Consumption.txt
-      - name: Save results
-        uses: actions/upload-artifact@v4
-        with:
-          name: Consumption
-          path: Consumption.txt
+          path: Rechercheretconsulterunlogement.html

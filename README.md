@@ -455,6 +455,49 @@ La page de la liste est la plus touchée : elle affiche désormais tous les loge
 
 La taille transférée (1 044 ko) est mesurée avec la compression gzip du serveur de pré-production. Sans compression, comme avec la configuration nginx actuelle, le navigateur téléchargerait les **4,2 Mo** complets. À l'échelle nationale (50 000 logements), le fichier dépasserait 100 Mo. Ces mesures confirment donc que le filtrage par ville et la limitation du nombre de résultats côté serveur sont indispensables avant la mise en production.
 
+### Automatisation de la mesure en intégration continue
+
+Pour que les mesures soient reproductibles et publiques, le scénario prioritaire est désormais décrit dans [`scenarios/rechercher_et_consulter_un_logement.yml`](./scenarios/rechercher_et_consulter_un_logement.yml) et exécuté par [GreenIT Analysis CLI](https://github.com/cnumr/GreenIT-Analysis-cli). Le robot y reproduit les actions du voyageur : consulter la liste, filtrer par ville, ouvrir une annonce, revenir aux résultats, ouvrir une seconde annonce.
+
+À chaque nouvelle version poussée, le [script d'intégration continue](./.github/workflows/test.yml) :
+
+1. construit le *frontend* (`build`) ;
+2. génère l'échantillon de données à partir du [modèle](./frontend/sample_data.hbs) (`build_samples`), plutôt que de journaliser dans Git un fichier volumineux ;
+3. démarre l'application avec nginx et y exécute le scénario (`measure_ecoindex`) ;
+4. publie le rapport HTML comme artefact `EcoIndex` de l'exécution.
+
+Pour lancer la mesure localement (application démarrée sur le port 80, Node 24) :
+
+```sh
+greenit analyse --format html --headless false scenarios/rechercher_et_consulter_un_logement.yml
+```
+
+### Passage à l'échelle mesuré avec GreenIT Analysis
+
+Nous avons d'abord tenté de multiplier les données par **100** (2 500 logements, 6 535 avis, fichier de **5,1 Mo**). La mesure s'est alors révélée impossible : l'analyse de la page de la liste dépasse le délai maximal du navigateur piloté (180 s, erreur `Runtime.callFunctionOn timed out`), et après trois essais, soit plus de 9 minutes, aucun résultat n'est produit. Ce délai serait inacceptable à chaque version en intégration continue. Il montre surtout qu'une page affichant tous les logements devient trop lourde même pour un navigateur de bureau.
+
+Nous avons donc retenu un passage à l'ordre de grandeur supérieur : **×10** (250 logements, fichier de **482 ko** au lieu de 52 ko). Le scénario s'exécute alors en **3 min 17 s** au lieu de 49 s.
+
+| Étape | Classe | GES (gCO2e) | Eau (cl) | Taille du DOM | Requêtes | Taille de la page (ko)
+|---|--:|--:|--:|--:|--:|--:
+| 1. Consulter la liste des logements | ~~B~~<br>D | ~~2,25~~<br>3,30 | ~~1,50~~<br>2,20 | ~~358~~<br>3 283 | 5 | ~~415~~<br>844
+| 2. Filtrer par ville | B | ~~1,95~~<br>2,52 | ~~1,30~~<br>1,68 | ~~85~~<br>514 | 5 | ~~415~~<br>844
+| 3. Consulter un logement | A | ~~1,86~~<br>1,98 | ~~1,24~~<br>1,32 | ~~62~~<br>101 | 2 | ~~53~~<br>483
+| 4. Revenir à la liste | ~~A~~<br>D | ~~2,19~~<br>3,24 | ~~1,46~~<br>2,16 | ~~358~~<br>3 283 | 2 | ~~53~~<br>483
+| 5. Consulter un autre logement | A | ~~1,86~~<br>1,92 | ~~1,24~~<br>1,28 | ~~71~~<br>62 | 2 | ~~53~~<br>483
+
+__Tab.8__ : Effet du passage à l'échelle (25 → 250 logements) sur le scénario « Rechercher et consulter un logement », mesuré avec GreenIT Analysis (valeurs barrées : mesures avant la simulation ; rapports [avant](./greenit-reports/avant-passage-a-l-echelle.html) et [après](./greenit-reports/apres-passage-a-l-echelle.html)).
+
+Dans le détail :
+
+- **La liste des logements** est la plus touchée. Son DOM est multiplié par 9 (de 358 à 3 283 éléments), presque proportionnellement aux données, car chaque logement donne une carte. Ses émissions augmentent de 47 % et sa classe passe de B à D, à l'aller comme au retour.
+- **Le filtre par ville** limite l'effet (514 éléments, classe B). Cela confirme l'intérêt de n'afficher que les logements d'une destination.
+- **Les pages d'un logement** gardent un DOM quasi constant (les variations viennent du nombre aléatoire d'avis) et restent en classe A. En revanche, la taille transférée passe de 53 à 483 ko : chaque page télécharge le **fichier de données complet** pour n'afficher qu'un seul logement. Cet impact croît donc linéairement avec le nombre d'annonces, sur toutes les pages.
+- **Aucune ressource n'est compressée** (indicateur « 0 % ressources compressées »). Activer gzip dans nginx diviserait la taille du JSON par 4 environ (cf. Tab.7).
+- En extrapolant, le passage à ×100 donnerait plus de 30 000 éléments et plus de 5 Mo par page, d'où l'échec de la mesure.
+
+Ces résultats confirment les priorités identifiées plus haut : pagination et filtrage côté serveur, chargement d'un seul logement par page de détail (`/{id}`) et compression des réponses.
+
 ## Conclusion
 
 Airbnb facilite les échanges entre voyageurs et hébergeurs et contribue à valoriser les logements existants. Cependant, il peut aussi encourager davantage de déplacements touristiques et donc augmenter son impact environnemental.

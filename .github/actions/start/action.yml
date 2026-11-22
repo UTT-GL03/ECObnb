@@ -1,0 +1,23 @@
+name: Start application
+description: Download the frontend build and the generated samples, then serve them with nginx
+
+runs:
+  using: composite
+  steps:
+    - name: Download frontend build
+      uses: actions/download-artifact@v4
+      with:
+        name: frontend-build
+        path: frontend/dist
+    - name: Download samples
+      uses: actions/download-artifact@v4
+      with:
+        name: samples
+        path: frontend/dist
+    - name: Start frontend
+      shell: bash
+      run: docker compose up --detach
+    - name: Wait for frontend
+      uses: docker://benel/wait-for-response:1
+      with:
+        args: http://localhost/ 200 30000 500
