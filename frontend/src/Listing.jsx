@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router'
+import { DB } from './database'
 import dayjs from 'dayjs'
 import 'dayjs/locale/fr'
 
@@ -60,9 +61,9 @@ function Listing() {
   const [listing, setListing] = useState(null)
 
   useEffect(() => {
-    fetch('/sample_data.json')
-      .then(r => r.json())
-      .then(data => setListing(data.docs.find(l => l._id === id)))
+    fetch(`${DB}/${encodeURIComponent(id)}`)
+      .then(r => r.ok ? r.json() : undefined)
+      .then(setListing)
   }, [id])
 
   if (listing === null) {

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router'
+import { DB } from './database'
 
 function Stars({ rating }) {
   const full = Math.round(rating)
@@ -39,9 +40,9 @@ function Listings() {
   const [city, setCity] = useState('Toutes')
 
   useEffect(() => {
-    fetch('/sample_data.json')
+    fetch(`${DB}/_all_docs?include_docs=true`)
       .then(r => r.json())
-      .then(data => setListings(data.docs))
+      .then(data => setListings(data.rows.map(row => row.doc).filter(doc => doc.docType === 'listing')))
   }, [])
 
   const cities = ['Toutes', ...new Set(listings.map(l => l.city)).values()]

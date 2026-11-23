@@ -24,17 +24,7 @@ runs:
       uses: docker://benel/wait-for-response:1
       with:
         args: http://localhost/ 200 30000 500
-    - name: Wait for database server
-      uses: docker://benel/wait-for-response:1
-      with:
-        args: http://localhost:5984/ 200 30000 500
-    - name: Load samples into database
-      shell: bash
-      run: |
-        DB="http://amin:amin@localhost:5984/ecobnb"
-        curl --fail -X PUT "$DB"
-        curl --fail -X POST "$DB/_bulk_docs" -H "Content-Type: application/json" -d @frontend/dist/sample_data.json > /dev/null
     - name: Wait for backend
       uses: docker://benel/wait-for-response:1
       with:
-        args: http://amin:amin@localhost:5984/ecobnb/_all_docs?limit=10 200 30000 500
+        args: http://localhost:5984/ecobnb/_all_docs?limit=10 200 30000 500

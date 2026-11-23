@@ -16,9 +16,30 @@ services:
       - COUCHDB_USER=${COUCHDB_USER}
       - COUCHDB_PASSWORD=${COUCHDB_PASSWORD}
     volumes:
-      - couchdb_data:/opt/couchdb/data
+      - ./settings/couchdb.ini:/opt/couchdb/etc/local.d/ecobnb.ini
     ports:
       - 5984:5984
+    healthcheck:
+      test: curl --fail --silent http://localhost:5984/_up
+      interval: 2s
+      retries: 30
 
-volumes:
-  couchdb_data:
+  database_init:
+    image: curlimages/curl
+    depends_on:
+      database:
+        condition: service_healthy
+    environment:
+      - DB=http://${COUCHDB_USER}:${COUCHDB_PASSWORD}@database:5984/ecobnb
+    volumes:
+      - ./frontend/dist/sample_data.json:/sample_data.json:ro
+    entrypoint: /bin/sh
+    command:
+      - -c
+      - |
+        curl --silent -X PUT $$DB
+        curl --fail --silent -X PUT $$DB/_security -H "Content-Type: application/json" \
+          -d '{"admins": {"roles": ["_admin"]}, "members": {"roles": []}}'
+        curl --silent -X PUT $$DB/_design/security -H "Content-Type: application/json"           -d '{"validate_doc_update": "function(newDoc, oldDoc, userCtx) { if (userCtx.roles.indexOf(\"_admin\") === -1) throw({forbidden: \"Read only\"}); }"}'
+        curl --fail --silent -X POST $$DB/_bulk_docs -H "Content-Type: application/json" \
+          -d @/sample_data.json -o /dev/null -w "Samples sent: HTTP %{http_code}\n"
