@@ -62,7 +62,7 @@ function Listing() {
   useEffect(() => {
     fetch('/sample_data.json')
       .then(r => r.json())
-      .then(data => setListing(data.listings.find(l => l.id === Number(id))))
+      .then(data => setListing(data.docs.find(l => l._id === id)))
   }, [id])
 
   if (listing === null) {

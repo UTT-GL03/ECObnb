@@ -16,14 +16,14 @@ function TransitBadge({ meters }) {
   return <span className={`transit-badge ${cls}`}>{meters} m</span>
 }
 
-function ListingCard({ id, city, type, title, host, price, capacity, rating, transit_distance }) {
+function ListingCard({ _id, city, type, title, host, price, capacity, rating, transit_distance }) {
   return (
     <article className="listing-card">
       <header>
         <span className="tag">{type}</span>
         <span className="city-label">{city}</span>
       </header>
-      <Link to={`/${id}`}><h3>{title}</h3></Link>
+      <Link to={`/${_id}`}><h3>{title}</h3></Link>
       <p className="capacity">{host} · {capacity} pers.</p>
       <footer>
         <span className="price">{price} €<small>/nuit</small></span>
@@ -41,7 +41,7 @@ function Listings() {
   useEffect(() => {
     fetch('/sample_data.json')
       .then(r => r.json())
-      .then(data => setListings(data.listings))
+      .then(data => setListings(data.docs))
   }, [])
 
   const cities = ['Toutes', ...new Set(listings.map(l => l.city)).values()]
@@ -58,7 +58,7 @@ function Listings() {
         ))}
       </div>
       <div className="listings-grid">
-        {filtered.map(l => <ListingCard key={l.id} {...l} />)}
+        {filtered.map(l => <ListingCard key={l._id} {...l} />)}
       </div>
     </main>
   )

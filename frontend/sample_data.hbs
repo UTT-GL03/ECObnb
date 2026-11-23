@@ -1,8 +1,9 @@
 {
-  "listings": [
+  "docs": [
     {{#repeat 250}}
     {
-      "id": {{@index}},
+      "_id": "{{@index}}",
+      "docType": "listing",
       "city": "{{random 'Paris' 'Lyon' 'Marseille' 'Bordeaux' 'Nantes' 'Strasbourg' 'Lille' 'Troyes'}}",
       "type": "{{random 'Appartement' 'Maison' 'Studio' 'Chambre chez l’habitant'}}",
       "title": "{{lorem min=3 max=12}}",
