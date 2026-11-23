@@ -498,6 +498,32 @@ Dans le détail :
 
 Ces résultats confirment les priorités identifiées plus haut : pagination et filtrage côté serveur, chargement d'un seul logement par page de détail (`/{id}`) et compression des réponses.
 
+### Mesure de la consommation énergétique liée à la consultation
+
+Le logiciel [GreenFrame](https://github.com/benel/greenframe-cli/tree/post-app) est capable d'estimer, pour les différents composants de l'architecture, la consommation énergétique :
+
+- du CPU (à partir du temps de calcul),
+- de la mémoire vive (à partir de la taille des données mémorisées),
+- du disque (à partir de la taille des données lues et écrites),
+- du réseau (à partir de la taille des données reçues et envoyées),
+- pour le navigateur uniquement, de l'écran (à partir du temps d'exécution du scénario).
+
+Nous avons écrit un scénario minimal pour chacun des deux types de page du prototype : [consulter la liste des logements](./scenarios/consult_listings.js) (`/`) et [consulter un logement](./scenarios/consult_listing.js) (`/0`). Chaque scénario charge la page, attend 10 s (temps de lecture), fait défiler la page jusqu'en bas puis attend 7 s. Les scénarios, l'URI de l'application et le conteneur mesuré (`ecobnb-static_hosting-1`, le serveur nginx) sont déclarés dans le [fichier de configuration de GreenFrame](./.greenframe.yml). La mesure est lancée automatiquement à chaque version poussée (tâche `measure_greenframe` du [script d'intégration continue](./.github/workflows/test.yml)), et son résultat est publié comme artefact `GreenFrame` de l'exécution.
+
+| (a)         | cpu (Wh) | mem (Wh) | disk (Wh) | network (Wh) | screen (Wh) | total (Wh) |
+| ----------- | -------- | -------- | --------- | ------------ | ----------- | ---------- |
+| Navigateur  |          |          |           |              |             |            |
+| Serveur Web |          |          |           |              |             |            |
+
+| (b)         | cpu (Wh) | mem (Wh) | disk (Wh) | network (Wh) | screen (Wh) | total (Wh) |
+| ----------- | -------- | -------- | --------- | ------------ | ----------- | ---------- |
+| Navigateur  |          |          |           |              |             |            |
+| Serveur Web |          |          |           |              |             |            |
+
+__Tab.9__ : Estimation de la consommation énergétique de la consultation de la liste des logements (premier tableau) et d'un logement (second tableau).
+
+<!-- TODO : compléter avec les valeurs de l'artefact GreenFrame et interpréter -->
+
 ## Conclusion
 
 Airbnb facilite les échanges entre voyageurs et hébergeurs et contribue à valoriser les logements existants. Cependant, il peut aussi encourager davantage de déplacements touristiques et donc augmenter son impact environnemental.

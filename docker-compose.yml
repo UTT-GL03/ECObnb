@@ -1,3 +1,5 @@
+name: ecobnb
+
 services:
 
   static_hosting:

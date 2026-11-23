@@ -1,0 +1,9 @@
+baseURL: http://localhost
+projectName: ECObnb
+scenarios:
+  - name: Consulter la liste des logements
+    path: ./scenarios/consult_listings.js
+  - name: Consulter un logement
+    path: ./scenarios/consult_listing.js
+containers:
+  - ecobnb-static_hosting-1

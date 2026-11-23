@@ -77,3 +77,38 @@ jobs:
         with:
           name: EcoIndex
           path: Rechercheretconsulterunlogement.html
+
+  measure_greenframe:
+    needs:
+      - build
+      - build_samples
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Download sources
+        uses: actions/checkout@v5
+      - name: Set up NodeJS
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      - name: Start application
+        uses: ./.github/actions/start
+      - name: Install GreenFrame
+        run: |
+          npm install -g corepack
+          corepack enable
+          cd ..
+          wget https://github.com/benel/greenframe-cli/archive/refs/heads/post-app.zip
+          unzip post-app.zip
+          rm post-app.zip
+          cd greenframe-cli-post-app
+          yarn
+          yarn build
+      - name: Measure with GreenFrame
+        run: |
+          ../greenframe-cli-post-app/bin/run analyze | tee greenframe.txt
+      - name: Save results
+        uses: actions/upload-artifact@v4
+        with:
+          name: GreenFrame
+          path: greenframe.txt
